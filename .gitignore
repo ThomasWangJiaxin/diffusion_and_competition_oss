@@ -5,8 +5,17 @@ cat > /home/lab0/survival_diffusion_github/.gitignore << 'EOF'
 *.png
 *.html
 
-# 允许competition_bass里的csv
-!competition_bass/*.csv
+# 允许competition_bass里的所有文件
+!competition_bass/
+!competition_bass/*
+
+# 允许migration里的所有文件
+!migration/
+!migration/*
+
+# 允许price_correlation里的所有文件
+!price_correlation/
+!price_correlation/*
 
 # 缓存
 __pycache__/
