@@ -1,15 +1,12 @@
 cat > /home/lab0/survival_diffusion_github/.gitignore << 'EOF'
-# 数据文件
+# 数据文件（默认排除）
 *.csv
 *.json
 *.png
 *.html
 
-# 只排除Bitcoin和Ethereum里的非py文件，py文件保留
-Bitcoin/*
-!Bitcoin/*.py
-Ethereum/*
-!Ethereum/*.py
+# 允许competition_bass里的csv
+!competition_bass/*.csv
 
 # 缓存
 __pycache__/
