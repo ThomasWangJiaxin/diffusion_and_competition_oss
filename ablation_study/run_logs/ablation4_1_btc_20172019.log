@@ -1,0 +1,15 @@
+
+📊 数据窗口: 2017-01-01 ~ 2019-01-01,  共 731 行
+
+→ 拟合 M4.1: Q=btc_q_event_sum_7 | price=btc_ma_7d(log) | q_form=linear
+  p0         =     0.001251  SE=0.000113  t=11.109  p=0.0000
+  alpha      =     0.000518  SE=0.000069  t=7.502  p=0.0000
+  q0         =     0.003208  SE=0.000761  t=4.217  p=0.0000
+  beta_q     =     0.002614  SE=0.000130  t=20.041  p=0.0000
+  m          = 42433.734170  SE=1395.295181  t=30.412  p=0.0000
+  MAD=13.6287  RMSE=19.7805  R²=0.7742  Adj_R²=0.7726
+  MAPE=30.11%  WAPE=26.54%
+  cond(J'J) = 5.6071e+15
+
+✅ 完成。组合成功 1 次，跳过 0 次。
+✅ 结果已保存：/home/lab0/survival_diffusion_github/ablation_study/ablation_M4_1_btc_price_qevent_20172019.csv

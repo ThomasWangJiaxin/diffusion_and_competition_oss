@@ -1,0 +1,62 @@
+
+📊 数据窗口: 2017-01-01 ~ 2019-01-01,  共 731 行
+✅ 成功加载 ETH 的迁入数据列: in_from_ETH
+✅ 成功加载 Dogecoin 的迁入数据列: in_from_Dogecoin
+✅ 成功加载 Lightning Network 的迁入数据列: in_from_Lightning Network
+✅ 成功加载 Monero 的迁入数据列: in_from_Monero
+✅ 成功加载 Litecoin 的迁入数据列: in_from_Litecoin
+✅ 成功加载 BTCD 的迁入数据列: in_from_BTCD
+✅ 成功加载 Zcash 的迁入数据列: in_from_Zcash
+✅ 成功加载 BCOIN 的迁入数据列: in_from_BCOIN
+✅ 成功加载 TRON 的迁入数据列: in_from_TRON
+✅ 成功加载 Stacks 的迁入数据列: in_from_Stacks
+✅ 成功加载 BitcoinCash 的迁入数据列: in_from_BitcoinCash
+✅ 成功加载 LBTC 的迁入数据列: in_from_LBTC
+✅ 成功加载 BitcoinGpu 的迁入数据列: in_from_BitcoinGpu
+✅ 成功加载 Parity 的迁入数据列: in_from_Parity
+✅ 成功加载 Rootstock 的迁入数据列: in_from_Rootstock
+
+📈 迁入数据统计（窗口期内）:
+  ETH                 : 总数=  2349, 非零天数= 627
+  Dogecoin            : 总数=   108, 非零天数=  97
+  Lightning Network   : 总数=   295, 非零天数= 223
+  Monero              : 总数=   300, 非零天数= 231
+  Litecoin            : 总数=   415, 非零天数= 266
+  BTCD                : 总数=   193, 非零天数= 158
+  Zcash               : 总数=   374, 非零天数= 272
+  BCOIN               : 总数=   171, 非零天数= 142
+  TRON                : 总数=    91, 非零天数=  79
+  Stacks              : 总数=    91, 非零天数=  78
+  BitcoinCash         : 总数=    89, 非零天数=  75
+  LBTC                : 总数=    78, 非零天数=  70
+  BitcoinGpu          : 总数=    97, 非零天数=  78
+  Parity              : 总数=    22, 非零天数=  22
+  Rootstock           : 总数=    39, 非零天数=  38
+
+→ 拟合 M7.2: price=btc_ma_7d(log) | P=btc_p_event_sum_7(linear)
+  p0                        =     0.001375  SE=0.000113  t=12.171  p=0.0000
+  alpha                     =     0.000580  SE=0.000058  t=9.924  p=0.0000
+  beta                      =    -0.000028  SE=0.000022  t=-1.243  p=0.2142
+  q0                        =     0.000002  SE=0.000534  t=0.003  p=0.9975
+  gamma_in_ETH              =     0.000370  SE=0.000068  t=5.474  p=0.0000
+  gamma_in_Dogecoin         =     0.000055  SE=0.000023  t=2.352  p=0.0189
+  gamma_in_Lightning Network =     0.000117  SE=0.000032  t=3.700  p=0.0002
+  gamma_in_Monero           =     0.000085  SE=0.000026  t=3.237  p=0.0013
+  gamma_in_Litecoin         =     0.000077  SE=0.000024  t=3.195  p=0.0015
+  gamma_in_BTCD             =     0.000015  SE=0.000022  t=0.678  p=0.4978
+  gamma_in_Zcash            =     0.000055  SE=0.000022  t=2.486  p=0.0132
+  gamma_in_BCOIN            =     0.000082  SE=0.000023  t=3.504  p=0.0005
+  gamma_in_TRON             =     0.000096  SE=0.000033  t=2.872  p=0.0042
+  gamma_in_Stacks           =     0.000020  SE=0.000019  t=1.036  p=0.3006
+  gamma_in_BitcoinCash      =    -0.000011  SE=0.000019  t=-0.594  p=0.5528
+  gamma_in_LBTC             =    -0.000008  SE=0.000021  t=-0.375  p=0.7078
+  gamma_in_BitcoinGpu       =     0.000005  SE=0.000020  t=0.246  p=0.8059
+  gamma_in_Parity           =     0.000011  SE=0.000018  t=0.615  p=0.5391
+  gamma_in_Rootstock        =     0.000001  SE=0.000023  t=0.026  p=0.9795
+  m                         = 53528.591169  SE=5464.667758  t=9.795  p=0.0000
+  MAD=13.4080  RMSE=17.9426  R²=0.8142  Adj_R²=0.8090
+  MAPE=35.58%  WAPE=26.11%
+  cond(J'J) = 2.2017e+17
+
+✅ 完成。组合成功 1 次，跳过 0 次。
+✅ 结果已保存：/home/lab0/survival_diffusion_github/ablation_study/ablation_M7_2_btc_price_pevent_inflow_20172019.csv

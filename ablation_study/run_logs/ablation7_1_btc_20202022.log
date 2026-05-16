@@ -1,0 +1,15 @@
+
+📊 数据窗口: 2020-10-01 ~ 2022-10-01,  共 731 行
+
+→ 拟合 M7.1: price=btc_price_lag1(log) | P=btc_p_event_sum_7(linear)
+  p0         =     0.001020  SE=0.000236  t=4.327  p=0.0000
+  alpha      =     0.000236  SE=0.000058  t=4.073  p=0.0001
+  beta       =     0.000128  SE=0.000048  t=2.643  p=0.0084
+  q0         =     0.000310  SE=0.000580  t=0.535  p=0.5928
+  m          = 52880.345196  SE=13241.685686  t=3.993  p=0.0001
+  MAD=12.6018  RMSE=20.2779  R²=0.3012  Adj_R²=0.2963
+  MAPE=39.78%  WAPE=31.11%
+  cond(J'J) = 5.9036e+17
+
+✅ 完成。组合成功 1 次，跳过 0 次。
+✅ 结果已保存：/home/lab0/survival_diffusion_github/ablation_study/ablation_M7_1_btc_price_pevent_20202022.csv

@@ -1,0 +1,64 @@
+
+📊 数据窗口: 2017-01-01 ~ 2019-01-01,  共 731 行
+
+📊 迁移数据列名: ['date', 'in_from_BCOIN', 'in_from_BNBChain', 'in_from_BOB', 'in_from_BTCD', 'in_from_BitcoinCash', 'in_from_eCash', 'in_from_BitcoinGpu', 'in_from_BitcoinSv', 'in_from_Dogecoin', 'in_from_ETH', 'in_from_LBTC', 'in_from_Lightning Network', 'in_from_Litecoin', 'in_from_Monero', 'in_from_Parity', 'in_from_Rootstock', 'in_from_Solana', 'in_from_Stacks', 'in_from_TRON', 'in_from_Zcash', 'total_in', 'out_to_BCOIN', 'out_to_BNBChain', 'out_to_BOB', 'out_to_BTCD', 'out_to_BitcoinCash', 'out_to_eCash', 'out_to_BitcoinGpu', 'out_to_Bitcoinsv', 'out_to_Dogecoin', 'out_to_ETH', 'out_to_LBTC', 'out_to_Lightning Network', 'out_to_Litecoin', 'out_to_Monero', 'out_to_Parity', 'out_to_Rootstock', 'out_to_Solana', 'out_to_Stacks', 'out_to_TRON', 'out_to_Zcash', 'total_out']
+📊 迁移数据日期范围: 2012-06-29 00:00:00 到 2025-12-29 00:00:00
+✅ 成功加载 ETH 的迁入数据列: in_from_ETH
+✅ 成功加载 Dogecoin 的迁入数据列: in_from_Dogecoin
+✅ 成功加载 Lightning Network 的迁入数据列: in_from_Lightning Network
+✅ 成功加载 Monero 的迁入数据列: in_from_Monero
+✅ 成功加载 Litecoin 的迁入数据列: in_from_Litecoin
+✅ 成功加载 BTCD 的迁入数据列: in_from_BTCD
+✅ 成功加载 Zcash 的迁入数据列: in_from_Zcash
+✅ 成功加载 BCOIN 的迁入数据列: in_from_BCOIN
+✅ 成功加载 TRON 的迁入数据列: in_from_TRON
+✅ 成功加载 Stacks 的迁入数据列: in_from_Stacks
+✅ 成功加载 BitcoinCash 的迁入数据列: in_from_BitcoinCash
+✅ 成功加载 LBTC 的迁入数据列: in_from_LBTC
+✅ 成功加载 BitcoinGpu 的迁入数据列: in_from_BitcoinGpu
+✅ 成功加载 Parity 的迁入数据列: in_from_Parity
+✅ 成功加载 Rootstock 的迁入数据列: in_from_Rootstock
+
+📈 迁入数据统计（窗口期内）:
+  ETH                 : 总数=  2349, 非零天数= 627
+  Dogecoin            : 总数=   108, 非零天数=  97
+  Lightning Network   : 总数=   295, 非零天数= 223
+  Monero              : 总数=   300, 非零天数= 231
+  Litecoin            : 总数=   415, 非零天数= 266
+  BTCD                : 总数=   193, 非零天数= 158
+  Zcash               : 总数=   374, 非零天数= 272
+  BCOIN               : 总数=   171, 非零天数= 142
+  TRON                : 总数=    91, 非零天数=  79
+  Stacks              : 总数=    91, 非零天数=  78
+  BitcoinCash         : 总数=    89, 非零天数=  75
+  LBTC                : 总数=    78, 非零天数=  70
+  BitcoinGpu          : 总数=    97, 非零天数=  78
+  Parity              : 总数=    22, 非零天数=  22
+  Rootstock           : 总数=    39, 非零天数=  38
+
+→ 拟合 M3.2: price=btc_ma_7d(log)
+  p0                        =     0.001382  SE=0.000098  t=14.037  p=0.0000
+  alpha                     =     0.000811  SE=0.000084  t=9.652  p=0.0000
+  q0                        =     0.000000  SE=0.000550  t=0.000  p=1.0000
+  gamma_in_ETH              =     0.000377  SE=0.000066  t=5.749  p=0.0000
+  gamma_in_Dogecoin         =     0.000054  SE=0.000024  t=2.211  p=0.0274
+  gamma_in_Lightning Network =     0.000075  SE=0.000029  t=2.568  p=0.0104
+  gamma_in_Monero           =     0.000073  SE=0.000027  t=2.709  p=0.0069
+  gamma_in_Litecoin         =     0.000095  SE=0.000026  t=3.650  p=0.0003
+  gamma_in_BTCD             =     0.000015  SE=0.000023  t=0.682  p=0.4955
+  gamma_in_Zcash            =     0.000047  SE=0.000023  t=2.011  p=0.0447
+  gamma_in_BCOIN            =     0.000079  SE=0.000024  t=3.254  p=0.0012
+  gamma_in_TRON             =     0.000083  SE=0.000032  t=2.556  p=0.0108
+  gamma_in_Stacks           =     0.000026  SE=0.000020  t=1.316  p=0.1885
+  gamma_in_BitcoinCash      =    -0.000016  SE=0.000020  t=-0.780  p=0.4356
+  gamma_in_LBTC             =    -0.000008  SE=0.000023  t=-0.336  p=0.7369
+  gamma_in_BitcoinGpu       =    -0.000016  SE=0.000021  t=-0.756  p=0.4497
+  gamma_in_Parity           =     0.000026  SE=0.000019  t=1.356  p=0.1755
+  gamma_in_Rootstock        =     0.000011  SE=0.000024  t=0.452  p=0.6513
+  m                         = 51782.445807  SE=4815.889627  t=10.752  p=0.0000
+  MAD=13.5225  RMSE=17.7781  R²=0.8176  Adj_R²=0.8127
+  MAPE=36.72%  WAPE=26.34%
+  cond(J'J) = 1.4587e+17
+
+✅ 完成。组合成功 1 次，跳过 0 次。
+✅ 结果已保存：/home/lab0/survival_diffusion_github/ablation_study/ablation_M3_2_btc_price_inflow_20172019.csv

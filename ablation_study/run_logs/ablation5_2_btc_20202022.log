@@ -1,0 +1,58 @@
+
+📊 数据窗口: 2020-10-01 ~ 2022-10-01,  共 731 行
+✅ 成功加载 ETH 的迁入数据列: in_from_ETH
+✅ 成功加载 Dogecoin 的迁入数据列: in_from_Dogecoin
+✅ 成功加载 Lightning Network 的迁入数据列: in_from_Lightning Network
+✅ 成功加载 Solana 的迁入数据列: in_from_Solana
+✅ 成功加载 Monero 的迁入数据列: in_from_Monero
+✅ 成功加载 Litecoin 的迁入数据列: in_from_Litecoin
+✅ 成功加载 BTCD 的迁入数据列: in_from_BTCD
+✅ 成功加载 Zcash 的迁入数据列: in_from_Zcash
+✅ 成功加载 BCOIN 的迁入数据列: in_from_BCOIN
+✅ 成功加载 TRON 的迁入数据列: in_from_TRON
+✅ 成功加载 Stacks 的迁入数据列: in_from_Stacks
+✅ 成功加载 BitcoinCash 的迁入数据列: in_from_BitcoinCash
+✅ 成功加载 BNBChain 的迁入数据列: in_from_BNBChain
+✅ 成功加载 LBTC 的迁入数据列: in_from_LBTC
+
+📈 迁入数据统计（窗口期内）:
+  ETH                 : 总数=  1422, 非零天数= 595
+  Dogecoin            : 总数=  1076, 非零天数= 414
+  Lightning Network   : 总数=   256, 非零天数= 215
+  Solana              : 总数=   405, 非零天数= 269
+  Monero              : 总数=   281, 非零天数= 209
+  Litecoin            : 总数=   160, 非零天数= 137
+  BTCD                : 总数=    84, 非零天数=  77
+  Zcash               : 总数=    88, 非零天数=  81
+  BCOIN               : 总数=    58, 非零天数=  56
+  TRON                : 总数=    78, 非零天数=  74
+  Stacks              : 总数=    60, 非零天数=  55
+  BitcoinCash         : 总数=    38, 非零天数=  38
+  BNBChain            : 总数=    62, 非零天数=  58
+  LBTC                : 总数=    27, 非零天数=  26
+
+→ 拟合 M5.2: P=btc_p_event_sum_7 | p_form=linear
+  p0                        =     0.000988  SE=0.000050  t=19.799  p=0.0000
+  beta                      =     0.000174  SE=0.000030  t=5.755  p=0.0000
+  q0                        =     0.001694  SE=0.000258  t=6.566  p=0.0000
+  gamma_in_ETH              =     0.000181  SE=0.000028  t=6.550  p=0.0000
+  gamma_in_Dogecoin         =     0.000126  SE=0.000022  t=5.692  p=0.0000
+  gamma_in_Lightning Network =    -0.000011  SE=0.000025  t=-0.439  p=0.6608
+  gamma_in_Solana           =     0.000159  SE=0.000034  t=4.663  p=0.0000
+  gamma_in_Monero           =     0.000095  SE=0.000021  t=4.494  p=0.0000
+  gamma_in_Litecoin         =     0.000122  SE=0.000025  t=4.954  p=0.0000
+  gamma_in_BTCD             =     0.000005  SE=0.000024  t=0.223  p=0.8233
+  gamma_in_Zcash            =     0.000002  SE=0.000023  t=0.087  p=0.9303
+  gamma_in_BCOIN            =     0.000052  SE=0.000024  t=2.191  p=0.0288
+  gamma_in_TRON             =    -0.000007  SE=0.000026  t=-0.279  p=0.7803
+  gamma_in_Stacks           =     0.000026  SE=0.000024  t=1.103  p=0.2705
+  gamma_in_BitcoinCash      =     0.000028  SE=0.000023  t=1.200  p=0.2304
+  gamma_in_BNBChain         =     0.000040  SE=0.000032  t=1.253  p=0.2106
+  gamma_in_LBTC             =    -0.000028  SE=0.000023  t=-1.231  p=0.2186
+  m                         = 38707.345833  SE=1619.459352  t=23.901  p=0.0000
+  MAD=10.6198  RMSE=16.0497  R²=0.5622  Adj_R²=0.5511
+  MAPE=31.87%  WAPE=26.22%
+  cond(J'J) = 9.5213e+15
+
+✅ 完成。组合成功 1 次，跳过 0 次。
+✅ 结果已保存：/home/lab0/survival_diffusion_github/ablation_study/ablation_M5_2_btc_pevent_inflow_20202022.csv

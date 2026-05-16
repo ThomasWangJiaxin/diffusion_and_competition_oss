@@ -1,0 +1,76 @@
+
+📊 数据窗口: 2020-10-01 ~ 2023-01-01,  共 823 行
+✅ 成功加载 BTC 的迁入数据列: in_from_BTC
+✅ 成功加载 Solana 的迁入数据列: in_from_Solana
+✅ 成功加载 Cosmos 的迁入数据列: in_from_Cosmos
+✅ 成功加载 BNBChain 的迁入数据列: in_from_BNBChain
+✅ 成功加载 Erigon 的迁入数据列: in_from_Erigon
+✅ 成功加载 Optimism 的迁入数据列: in_from_Optimism
+✅ 成功加载 TRON 的迁入数据列: in_from_TRON
+✅ 成功加载 Aptos 的迁入数据列: in_from_Aptos
+✅ 成功加载 Sui 的迁入数据列: in_from_Sui
+✅ 成功加载 Besu 的迁入数据列: in_from_Besu
+✅ 成功加载 Nethermind 的迁入数据列: in_from_Nethermind
+✅ 成功加载 Avalanche 的迁入数据列: in_from_Avalanche
+✅ 成功加载 Polygon 的迁入数据列: in_from_Polygon
+✅ 成功加载 Arweave 的迁入数据列: in_from_Arweave
+✅ 成功加载 Near 的迁入数据列: in_from_Near
+✅ 成功加载 FLOW 的迁入数据列: in_from_FLOW
+✅ 成功加载 Harmony 的迁入数据列: in_from_Harmony
+✅ 成功加载 Reth 的迁入数据列: in_from_Reth
+✅ 成功加载 Ethereumpow 的迁入数据列: in_from_Ethereumpow
+✅ 成功加载 THETA 的迁入数据列: in_from_THETA
+
+📈 迁入数据统计（窗口期内）:
+  BTC                 : 总数=  3073, 非零天数= 777
+  Solana              : 总数=   497, 非零天数= 337
+  Cosmos              : 总数=   266, 非零天数= 220
+  BNBChain            : 总数=   264, 非零天数= 216
+  Erigon              : 总数=   167, 非零天数= 147
+  Optimism            : 总数=   102, 非零天数=  94
+  TRON                : 总数=   144, 非零天数= 130
+  Aptos               : 总数=    84, 非零天数=  59
+  Sui                 : 总数=    40, 非零天数=  32
+  Besu                : 总数=    73, 非零天数=  67
+  Nethermind          : 总数=    53, 非零天数=  49
+  Avalanche           : 总数=     6, 非零天数=   6
+  Polygon             : 总数=    56, 非零天数=  54
+  Arweave             : 总数=    42, 非零天数=  33
+  Near                : 总数=    96, 非零天数=  90
+  FLOW                : 总数=    28, 非零天数=  28
+  Harmony             : 总数=    31, 非零天数=  31
+  Reth                : 总数=     6, 非零天数=   6
+  Ethereumpow         : 总数=    10, 非零天数=   9
+  THETA               : 总数=    20, 非零天数=  19
+
+→ 拟合 M2.2: Q=eth_q_event_sum_7(linear)
+  p0                        =     0.000588  SE=0.000028  t=20.698  p=0.0000
+  q0                        =     0.001978  SE=0.000157  t=12.636  p=0.0000
+  beta_q                    =     0.000327  SE=0.000048  t=6.766  p=0.0000
+  gamma_in_BTC              =     0.000107  SE=0.000012  t=8.598  p=0.0000
+  gamma_in_Solana           =     0.000041  SE=0.000017  t=2.465  p=0.0139
+  gamma_in_Cosmos           =     0.000030  SE=0.000014  t=2.091  p=0.0369
+  gamma_in_BNBChain         =     0.000015  SE=0.000015  t=0.980  p=0.3274
+  gamma_in_Erigon           =    -0.000013  SE=0.000017  t=-0.768  p=0.4425
+  gamma_in_Optimism         =     0.000006  SE=0.000014  t=0.448  p=0.6545
+  gamma_in_TRON             =    -0.000006  SE=0.000012  t=-0.456  p=0.6486
+  gamma_in_Aptos            =     0.000042  SE=0.000028  t=1.540  p=0.1240
+  gamma_in_Sui              =     0.000054  SE=0.000030  t=1.823  p=0.0686
+  gamma_in_Besu             =     0.000003  SE=0.000014  t=0.221  p=0.8248
+  gamma_in_Nethermind       =     0.000017  SE=0.000015  t=1.146  p=0.2520
+  gamma_in_Avalanche        =     0.000014  SE=0.000013  t=1.090  p=0.2761
+  gamma_in_Polygon          =    -0.000023  SE=0.000018  t=-1.312  p=0.1899
+  gamma_in_Arweave          =    -0.000002  SE=0.000020  t=-0.087  p=0.9307
+  gamma_in_Near             =     0.000037  SE=0.000014  t=2.685  p=0.0074
+  gamma_in_FLOW             =     0.000011  SE=0.000014  t=0.831  p=0.4064
+  gamma_in_Harmony          =     0.000002  SE=0.000014  t=0.141  p=0.8877
+  gamma_in_Reth             =     0.000017  SE=0.000036  t=0.483  p=0.6293
+  gamma_in_Ethereumpow      =     0.000060  SE=0.000029  t=2.086  p=0.0373
+  gamma_in_THETA            =     0.000005  SE=0.000013  t=0.401  p=0.6884
+  m                         = 27725.330655  SE=789.775503  t=35.105  p=0.0000
+  MAD=5.0050  RMSE=6.5085  R²=0.6033  Adj_R²=0.5914
+  MAPE=25.87%  WAPE=19.32%
+  cond(J'J) = 6.4942e+15
+
+✅ 完成。组合成功 1 次，跳过 0 次。
+✅ 结果已保存：/home/lab0/survival_diffusion_github/ablation_study/ablation_M2_2_eth_qevent_inflow_20202023.csv

@@ -1,0 +1,28 @@
+
+📊 数据窗口: 2017-01-01 ~ 2019-01-01,  共 731 行
+✅ 成功加载 BTC 的迁入数据列: in_from_BTC
+✅ 成功加载 Solana 的迁入数据列: in_from_Solana
+✅ 成功加载 Cosmos 的迁入数据列: in_from_Cosmos
+✅ 成功加载 TRON 的迁入数据列: in_from_TRON
+
+📈 迁入数据统计（窗口期内）:
+  BTC                 : 总数=  4581, 非零天数= 691
+  Solana              : 总数=    11, 非零天数=  11
+  Cosmos              : 总数=    78, 非零天数=  71
+  TRON                : 总数=   117, 非零天数=  91
+
+→ 拟合 M2.2: Q=eth_q_event_sum_7(linear)
+  p0                        =     0.000754  SE=0.000034  t=22.057  p=0.0000
+  q0                        =     0.003159  SE=0.000244  t=12.936  p=0.0000
+  beta_q                    =     0.000654  SE=0.000094  t=6.975  p=0.0000
+  gamma_in_BTC              =     0.000362  SE=0.000029  t=12.415  p=0.0000
+  gamma_in_Solana           =    -0.000024  SE=0.000046  t=-0.527  p=0.5983
+  gamma_in_Cosmos           =     0.000064  SE=0.000027  t=2.392  p=0.0170
+  gamma_in_TRON             =     0.000134  SE=0.000030  t=4.473  p=0.0000
+  m                         = 32688.189816  SE=674.464658  t=48.465  p=0.0000
+  MAD=7.8985  RMSE=10.7743  R²=0.8021  Adj_R²=0.7999
+  MAPE=28.56%  WAPE=21.00%
+  cond(J'J) = 1.8814e+15
+
+✅ 完成。组合成功 1 次，跳过 0 次。
+✅ 结果已保存：/home/lab0/survival_diffusion_github/ablation_study/ablation_M2_2_eth_qevent_inflow_20172019.csv

@@ -1,0 +1,15 @@
+
+📊 数据窗口: 2020-10-01 ~ 2022-10-01,  共 731 行
+
+→ 拟合 M4.1: Q=btc_q_event_sum_30 | price=btc_price_lag1(log) | q_form=linear
+  p0         =     0.000829  SE=0.000108  t=7.670  p=0.0000
+  alpha      =     0.000172  SE=0.000031  t=5.604  p=0.0000
+  q0         =     0.000000  SE=0.000191  t=0.000  p=1.0000
+  beta_q     =     0.001003  SE=0.000295  t=3.396  p=0.0007
+  m          = 61796.602260  SE=5855.501637  t=10.554  p=0.0000
+  MAD=12.5110  RMSE=20.5309  R²=0.2836  Adj_R²=0.2787
+  MAPE=40.07%  WAPE=30.89%
+  cond(J'J) = 1.5970e+17
+
+✅ 完成。组合成功 1 次，跳过 0 次。
+✅ 结果已保存：/home/lab0/survival_diffusion_github/ablation_study/ablation_M4_1_btc_price_qevent_20202022.csv

@@ -1,0 +1,14 @@
+
+📊 数据窗口: 2020-10-01 ~ 2023-01-01,  共 823 行
+
+→ 拟合 M5.1: P=eth_p_event_sum_21 | p_form=linear
+  p0       =     0.000620  SE=0.000028  t=22.249  p=0.0000
+  beta     =     0.000159  SE=0.000022  t=7.327  p=0.0000
+  q0       =     0.003332  SE=0.000173  t=19.282  p=0.0000
+  m        = 26766.730830  SE=514.120067  t=52.063  p=0.0000
+  MAD=6.8074  RMSE=9.1207  R²=0.2210  Adj_R²=0.2172
+  MAPE=38.16%  WAPE=26.28%
+  cond(J'J) = 8.4149e+14
+
+✅ 完成。组合成功 1 次，跳过 0 次。
+✅ 结果已保存：/home/lab0/survival_diffusion_github/ablation_study/ablation_M5_1_eth_pevent_only_20202023.csv

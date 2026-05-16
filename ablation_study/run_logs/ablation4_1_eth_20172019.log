@@ -1,0 +1,15 @@
+
+📊 数据窗口: 2017-01-01 ~ 2019-01-01,  共 731 行
+
+→ 拟合 M4.1: Q=eth_q_event_sum_7 | price=eth_price_lag1(log) | q_form=linear
+  p0         =     0.000888  SE=0.000047  t=18.941  p=0.0000
+  alpha      =     0.000281  SE=0.000030  t=9.500  p=0.0000
+  q0         =     0.003065  SE=0.000512  t=5.986  p=0.0000
+  beta_q     =     0.001773  SE=0.000089  t=19.959  p=0.0000
+  m          = 34233.591323  SE=1426.696650  t=23.995  p=0.0000
+  MAD=9.4314  RMSE=13.3837  R²=0.6946  Adj_R²=0.6925
+  MAPE=30.29%  WAPE=25.07%
+  cond(J'J) = 8.3086e+15
+
+✅ 完成。组合成功 1 次，跳过 0 次。
+✅ 结果已保存：/home/lab0/survival_diffusion_github/ablation_study/ablation_M4_1_eth_price_qevent_20172019.csv

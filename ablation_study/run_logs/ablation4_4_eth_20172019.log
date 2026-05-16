@@ -1,0 +1,45 @@
+
+📊 数据窗口: 2017-01-01 ~ 2019-01-01,  共 731 行
+✅ 成功加载 BTC 的迁入数据列: in_from_BTC
+✅ 成功加载 BTC 的迁出数据列: out_to_BTC
+✅ 成功加载 Solana 的迁入数据列: in_from_Solana
+✅ 成功加载 Solana 的迁出数据列: out_to_Solana
+✅ 成功加载 Cosmos 的迁入数据列: in_from_Cosmos
+✅ 成功加载 Cosmos 的迁出数据列: out_to_Cosmos
+✅ 成功加载 TRON 的迁入数据列: in_from_TRON
+✅ 成功加载 TRON 的迁出数据列: out_to_TRON
+
+📈 迁移数据统计（窗口期内）:
+  BTC                 :
+    迁入: 总数=  4581, 非零天数= 691
+    迁出: 总数=  2571, 非零天数= 639
+  Solana              :
+    迁入: 总数=    11, 非零天数=  11
+    迁出: 总数=    71, 非零天数=  46
+  Cosmos              :
+    迁入: 总数=    78, 非零天数=  71
+    迁出: 总数=   230, 非零天数= 182
+  TRON                :
+    迁入: 总数=   117, 非零天数=  91
+    迁出: 总数=   234, 非零天数= 135
+
+→ 拟合 M4.4: Q=eth_q_event_sum_7 | price=eth_price_lag1(log) | q_form=linear
+  p0                        =     0.000497  SE=0.000060  t=8.224  p=0.0000
+  alpha                     =     0.000104  SE=0.000016  t=6.684  p=0.0000
+  q0                        =     0.000054  SE=0.000085  t=0.633  p=0.5270
+  beta_q                    =     0.000423  SE=0.000076  t=5.579  p=0.0000
+  gamma_in_BTC              =     0.000099  SE=0.000015  t=6.524  p=0.0000
+  gamma_in_Solana           =    -0.000005  SE=0.000008  t=-0.594  p=0.5529
+  gamma_in_Cosmos           =     0.000018  SE=0.000008  t=2.226  p=0.0263
+  gamma_in_TRON             =     0.000031  SE=0.000009  t=3.351  p=0.0008
+  delta_out_BTC             =    -0.000052  SE=0.000011  t=-4.783  p=0.0000
+  delta_out_Solana          =     0.000008  SE=0.000007  t=1.092  p=0.2754
+  delta_out_Cosmos          =    -0.000003  SE=0.000008  t=-0.447  p=0.6548
+  delta_out_TRON            =     0.000008  SE=0.000007  t=1.134  p=0.2573
+  m                         = 72917.838007  SE=7540.734765  t=9.670  p=0.0000
+  MAD=7.3168  RMSE=10.1970  R²=0.8227  Adj_R²=0.8195
+  MAPE=24.55%  WAPE=19.45%
+  cond(J'J) = 4.3523e+18
+
+✅ 完成。组合成功 1 次，跳过 0 次。
+✅ 结果已保存：/home/lab0/survival_diffusion_github/ablation_study/ablation_M4_4_eth_price_qevent_inflow_outflow_20172019.csv

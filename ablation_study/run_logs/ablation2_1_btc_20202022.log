@@ -1,0 +1,14 @@
+
+📊 数据窗口: 2020-10-01 ~ 2022-10-01,  共 731 行
+
+→ 拟合 M2.1: Q=btc_q_event_sum_30(linear)
+  p0         =     0.001042  SE=0.000062  t=16.807  p=0.0000
+  q0         =     0.003384  SE=0.000322  t=10.516  p=0.0000
+  beta_q     =     0.000512  SE=0.000121  t=4.230  p=0.0000
+  m          = 34935.236397  SE=964.472115  t=36.222  p=0.0000
+  MAD=14.1641  RMSE=22.0457  R²=0.1740  Adj_R²=0.1695
+  MAPE=44.66%  WAPE=34.97%
+  cond(J'J) = 6.4236e+14
+
+✅ 完成。组合成功 1 次，跳过 0 次。
+✅ 结果已保存：/home/lab0/survival_diffusion_github/ablation_study/ablation_M2_1_btc_qevent_only_20202022.csv

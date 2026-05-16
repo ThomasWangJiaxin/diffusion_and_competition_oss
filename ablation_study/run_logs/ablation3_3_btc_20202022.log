@@ -1,0 +1,60 @@
+
+📊 数据窗口: 2020-10-01 ~ 2022-10-01,  共 731 行
+
+📊 迁移数据列名: ['date', 'in_from_BCOIN', 'in_from_BNBChain', 'in_from_BOB', 'in_from_BTCD', 'in_from_BitcoinCash', 'in_from_eCash', 'in_from_BitcoinGpu', 'in_from_BitcoinSv', 'in_from_Dogecoin', 'in_from_ETH', 'in_from_LBTC', 'in_from_Lightning Network', 'in_from_Litecoin', 'in_from_Monero', 'in_from_Parity', 'in_from_Rootstock', 'in_from_Solana', 'in_from_Stacks', 'in_from_TRON', 'in_from_Zcash', 'total_in', 'out_to_BCOIN', 'out_to_BNBChain', 'out_to_BOB', 'out_to_BTCD', 'out_to_BitcoinCash', 'out_to_eCash', 'out_to_BitcoinGpu', 'out_to_Bitcoinsv', 'out_to_Dogecoin', 'out_to_ETH', 'out_to_LBTC', 'out_to_Lightning Network', 'out_to_Litecoin', 'out_to_Monero', 'out_to_Parity', 'out_to_Rootstock', 'out_to_Solana', 'out_to_Stacks', 'out_to_TRON', 'out_to_Zcash', 'total_out']
+📊 迁移数据日期范围: 2012-06-29 00:00:00 到 2025-12-29 00:00:00
+Loaded outflow ETH: out_to_ETH
+Loaded outflow Dogecoin: out_to_Dogecoin
+Loaded outflow Lightning Network: out_to_Lightning Network
+Loaded outflow Solana: out_to_Solana
+Loaded outflow Monero: out_to_Monero
+Loaded outflow Litecoin: out_to_Litecoin
+Loaded outflow BTCD: out_to_BTCD
+Loaded outflow Zcash: out_to_Zcash
+Loaded outflow BCOIN: out_to_BCOIN
+Loaded outflow TRON: out_to_TRON
+Loaded outflow Stacks: out_to_Stacks
+Loaded outflow BitcoinCash: out_to_BitcoinCash
+Loaded outflow BNBChain: out_to_BNBChain
+Loaded outflow LBTC: out_to_LBTC
+Outflow data summary (window):
+  ETH                 : total=  2569, nonzero_days= 677
+  Dogecoin            : total=  1731, nonzero_days= 387
+  Lightning Network   : total=   529, nonzero_days= 373
+  Solana              : total=  1014, nonzero_days= 445
+  Monero              : total=   564, nonzero_days= 344
+  Litecoin            : total=   238, nonzero_days= 178
+  BTCD                : total=   194, nonzero_days= 168
+  Zcash               : total=   103, nonzero_days=  98
+  BCOIN               : total=   100, nonzero_days=  91
+  TRON                : total=   100, nonzero_days=  90
+  Stacks              : total=    93, nonzero_days=  88
+  BitcoinCash         : total=    44, nonzero_days=  43
+  BNBChain            : total=   207, nonzero_days= 157
+  LBTC                : total=    58, nonzero_days=  52
+
+-> Fitting M2.3: price=btc_price_lag1(log)
+  p0                        =     0.000849  SE=0.000333  t=2.546  p=0.0111
+  alpha                     =     0.000131  SE=0.000054  t=2.454  p=0.0144
+  q0                        =     0.000021  SE=0.000520  t=0.040  p=0.9678
+  delta_out_ETH             =    -0.000078  SE=0.000043  t=-1.795  p=0.0731
+  delta_out_Dogecoin        =    -0.000083  SE=0.000039  t=-2.151  p=0.0318
+  delta_out_Lightning Network =    -0.000032  SE=0.000022  t=-1.465  p=0.1434
+  delta_out_Solana          =    -0.000021  SE=0.000022  t=-0.957  p=0.3390
+  delta_out_Monero          =    -0.000029  SE=0.000018  t=-1.640  p=0.1015
+  delta_out_Litecoin        =    -0.000024  SE=0.000019  t=-1.263  p=0.2068
+  delta_out_BTCD            =     0.000002  SE=0.000015  t=0.155  p=0.8767
+  delta_out_Zcash           =    -0.000008  SE=0.000016  t=-0.508  p=0.6116
+  delta_out_BCOIN           =    -0.000007  SE=0.000015  t=-0.446  p=0.6557
+  delta_out_TRON            =     0.000016  SE=0.000018  t=0.881  p=0.3789
+  delta_out_Stacks          =    -0.000007  SE=0.000015  t=-0.462  p=0.6446
+  delta_out_BitcoinCash     =     0.000009  SE=0.000015  t=0.583  p=0.5599
+  delta_out_BNBChain        =    -0.000024  SE=0.000020  t=-1.173  p=0.2411
+  delta_out_LBTC            =    -0.000011  SE=0.000016  t=-0.675  p=0.5000
+  m                         = 63563.065789  SE=24892.304627  t=2.554  p=0.0109
+  MAD=11.9667  RMSE=19.5237  R2=0.3522  Adj_R2=0.3358
+  MAPE=36.89%  WAPE=29.54%
+  cond = 6.5725e+18
+
+✅ 完成。组合成功 1 次，跳过 0 次。
+✅ 结果已保存：/home/lab0/survival_diffusion_github/ablation_study/ablation_M3_3_btc_price_outflow_20202022.csv

@@ -1,0 +1,30 @@
+
+📊 数据窗口: 2017-01-01 ~ 2019-01-01,  共 731 行
+✅ 成功加载 BTC 的迁入数据列: in_from_BTC
+✅ 成功加载 Solana 的迁入数据列: in_from_Solana
+✅ 成功加载 Cosmos 的迁入数据列: in_from_Cosmos
+✅ 成功加载 TRON 的迁入数据列: in_from_TRON
+
+📈 迁入数据统计（窗口期内）:
+  BTC                 : 总数=  4581, 非零天数= 691
+  Solana              : 总数=    11, 非零天数=  11
+  Cosmos              : 总数=    78, 非零天数=  71
+  TRON                : 总数=   117, 非零天数=  91
+
+→ 拟合 M8.2: price=eth_price_lag1(log) | P=eth_p_event_sum_30(linear) | Q=eth_q_event_sum_7(linear)
+  p0                        =     0.000767  SE=0.000085  t=9.042  p=0.0000
+  alpha                     =     0.000166  SE=0.000018  t=9.004  p=0.0000
+  beta                      =    -0.000022  SE=0.000009  t=-2.392  p=0.0170
+  q0                        =     0.000730  SE=0.000347  t=2.105  p=0.0357
+  beta_q                    =     0.000600  SE=0.000088  t=6.838  p=0.0000
+  gamma_in_BTC              =     0.000191  SE=0.000034  t=5.596  p=0.0000
+  gamma_in_Solana           =    -0.000009  SE=0.000018  t=-0.514  p=0.6077
+  gamma_in_Cosmos           =     0.000037  SE=0.000016  t=2.278  p=0.0230
+  gamma_in_TRON             =     0.000068  SE=0.000021  t=3.245  p=0.0012
+  m                         = 46418.174143  SE=5980.128991  t=7.762  p=0.0000
+  MAD=7.4586  RMSE=10.3775  R²=0.8164  Adj_R²=0.8139
+  MAPE=24.70%  WAPE=19.83%
+  cond(J'J) = 7.3326e+17
+
+✅ 完成。组合成功 1 次，跳过 0 次。
+✅ 结果已保存：/home/lab0/survival_diffusion_github/ablation_study/ablation_M8_2_eth_price_pevent_qevent_inflow_20172019.csv

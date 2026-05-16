@@ -1,0 +1,496 @@
+# 最终代码什么都有了 指标加全了-ETH
+import warnings
+warnings.filterwarnings("ignore")
+import pandas as pd
+import numpy as np
+from scipy.optimize import least_squares
+from scipy.stats import t
+import math
+import sys
+
+# ============= 参数配置 =============
+CSV_PATH = "/home/lab0/survival_diffusion_github/competition_bass/ETHdev_day_timeline_event_all_with_price_event_features.csv"
+MIGRATION_PATH = "/home/lab0/survival_diffusion_github/eth_global_migration_enhanced_daily_strict_rules.csv"
+DATE_COL = "date"
+NEW_COL = "eth_new_developers"
+CUM_COL = "eth_cum_users"
+START_DATE = "2020-10-01"
+END_DATE = "2023-01-01"
+OUTPUT_CSV = "eth_bass_pqfit_results_inflow_outflow_network20202023-full-eip.csv"
+
+# 2020-2023
+COMPETITORS = ["BTC", "Solana", "Cosmos", "BNBChain", "Erigon", "Optimism", "TRON", "Aptos", "Sui", "Besu", "Nethermind", "Avalanche", "Polygon", "Arweave", "Near", "FLOW", "Harmony", "Reth", "EthereumPow", "THETA"]
+
+# ============= P_EVENT_LIST 与 Q_EVENT_LIST =============
+# ===================================
+# ============= P_EVENT_LIST 与 Q_EVENT_LIST =============
+P_EVENT_LIST = [
+    "eth_p_event_lag1","eth_p_event_sum_7","eth_p_event_sum_14","eth_p_event_sum_21","eth_p_event_sum_30",
+    "eth_p_eip_p_event_lag1","eth_p_eip_p_event_sum_7","eth_p_eip_p_event_sum_14","eth_p_eip_p_event_sum_21","eth_p_eip_p_event_sum_30"
+]
+Q_EVENT_LIST = [
+    "eth_q_event_lag1","eth_q_event_sum_7","eth_q_event_sum_14","eth_q_event_sum_21","eth_q_event_sum_30",
+    "eth_q_eip_q_event_lag1","eth_q_eip_q_event_sum_7","eth_q_eip_q_event_sum_14","eth_q_eip_q_event_sum_21","eth_q_eip_q_event_sum_30"
+]
+
+# ============= 价格滞后变量 =============
+PRICE_LAG_COLS = [
+    "eth_price_lag1","eth_ma_7d","eth_ma_14d","eth_ma_21d","eth_ma_30d"
+]
+
+# ----------------- 评估指标 -----------------
+def compute_metrics(y_true, y_pred, k):
+    """
+    计算全套拟合优度指标。
+    y_true: 真实值数组
+    y_pred: 预测值数组
+    k:      模型参数个数（用于 adjusted R²）
+    返回: dict
+    """
+    y_true = np.array(y_true, dtype=float)
+    y_pred = np.array(y_pred, dtype=float)
+    n = len(y_true)
+    resid = y_true - y_pred
+
+    sse  = np.sum(resid ** 2)
+    mse  = sse / n
+    rmse = math.sqrt(mse)
+    mad  = np.mean(np.abs(resid))
+
+    ss_tot = np.sum((y_true - np.mean(y_true)) ** 2)
+    r2 = 1 - sse / ss_tot if ss_tot > 0 else np.nan
+
+    # Adjusted R²
+    if n - k - 1 > 0 and ss_tot > 0:
+        adj_r2 = 1 - (1 - r2) * (n - 1) / (n - k - 1)
+    else:
+        adj_r2 = np.nan
+
+    # MAPE: 跳过 y_true == 0 的点，避免除零
+    mask = y_true != 0
+    mape = np.mean(np.abs(resid[mask] / y_true[mask])) * 100 if mask.sum() > 0 else np.nan
+
+    # WAPE = sum|resid| / sum|y_true|
+    denom = np.sum(np.abs(y_true))
+    wape = np.sum(np.abs(resid)) / denom * 100 if denom > 0 else np.nan
+
+    return {
+        "MAD":      mad,
+        "SSE":      sse,
+        "MSE":      mse,
+        "RMSE":     rmse,
+        "R2":       r2,
+        "Adj_R2":   adj_r2,
+        "MAPE":     mape,
+        "WAPE":     wape,
+    }
+
+# ----------------- 工具函数 -----------------
+def normalize(x):
+    x = np.array(x, dtype=float)
+    mean = np.mean(x)
+    std = np.std(x)
+    if std <= 0:
+        return x - mean
+    return (x - mean) / (std + 1e-12)
+
+def compute_q_t_from_array(event_arr, q_params, q_form):
+    q0, beta = q_params
+    ev = normalize(event_arr)
+    if q_form == "linear":
+        q_t = np.maximum(q0 + beta * ev, 0)
+    elif q_form == "log":
+        q_t = np.maximum(q0 + beta * np.log1p(np.maximum(ev, 0)), 0)
+    elif q_form == "exp":
+        q_t = q0 * np.exp(beta * ev)
+    else:
+        raise ValueError("未知 q_form")
+    return q_t
+
+def compute_p_t_from_array(df, params, price_array, p_model, p_event_col):
+    ev = normalize(df[p_event_col].values)
+    if p_model == "additive":
+        p0, alpha, beta = params[:3]
+        p_t = p0 + alpha * price_array + beta * ev
+    elif p_model == "nonlinear_event":
+        p0, alpha, beta = params[:3]
+        p_t = p0 + alpha * price_array + beta * np.log1p(np.maximum(ev, 0))
+    elif p_model == "interaction_linear":
+        p0, alpha, beta, gamma = params[:4]
+        p_t = p0 + alpha * price_array + beta * ev + gamma * (price_array * ev)
+    elif p_model == "interaction_nonlinear":
+        p0, alpha, beta, gamma = params[:4]
+        p_t = p0 + alpha * price_array + beta * np.log1p(np.maximum(ev, 0)) + gamma * (price_array * ev)
+    else:
+        raise ValueError("未知 p_model")
+    return np.maximum(p_t, 0)
+
+def get_param_indices(p_model):
+    n_comp = len(COMPETITORS)
+    p_param_count = 3 if p_model in ["additive", "nonlinear_event"] else 4
+    q_start     = p_param_count
+    gamma_start = q_start + 2
+    delta_start = gamma_start + n_comp
+    m_idx       = delta_start + n_comp
+    total       = m_idx + 1
+    return p_param_count, q_start, gamma_start, delta_start, m_idx, total
+
+def dN_pred_from_Nlag(N_lag, p_t_arr, q_t_arr, m, inflow_dict, outflow_dict, gamma_in_params, delta_out_params):
+    remaining = np.maximum(m - N_lag, 0)
+    base_rate = p_t_arr + q_t_arr * (N_lag / m)
+
+    inflow_network_rate = np.zeros_like(N_lag)
+    for i, coin in enumerate(COMPETITORS):
+        if coin in inflow_dict:
+            M_in = inflow_dict[coin]
+            M_in_lag = np.concatenate([[0], M_in[:-1]])
+            M_in_norm = normalize(M_in_lag)
+            inflow_network_rate += gamma_in_params[i] * M_in_norm
+
+    outflow_network_rate = np.zeros_like(N_lag)
+    for i, coin in enumerate(COMPETITORS):
+        if coin in outflow_dict:
+            M_out = outflow_dict[coin]
+            M_out_lag = np.concatenate([[0], M_out[:-1]])
+            M_out_norm = normalize(M_out_lag)
+            outflow_network_rate += delta_out_params[i] * M_out_norm
+
+    total_rate = base_rate + inflow_network_rate - outflow_network_rate
+    constrained_growth = total_rate * remaining
+
+    direct_migration = np.zeros_like(N_lag)
+    for coin in COMPETITORS:
+        if coin in inflow_dict:
+            direct_migration += inflow_dict[coin]
+
+    return constrained_growth + direct_migration
+
+def compute_prediction_pair(df, params, price_array, p_event_col, q_event_col, p_model, q_form, inflow_dict, outflow_dict):
+    p_param_count, q_start, gamma_start, delta_start, m_idx, _ = get_param_indices(p_model)
+    p_params        = params[:p_param_count]
+    q0, beta_q      = params[q_start], params[q_start + 1]
+    gamma_in_params = params[gamma_start: gamma_start + len(COMPETITORS)]
+    delta_out_params= params[delta_start: delta_start + len(COMPETITORS)]
+    m               = params[m_idx]
+    p_t  = compute_p_t_from_array(df, p_params, price_array, p_model, p_event_col)
+    q_t  = compute_q_t_from_array(df[q_event_col].values, (q0, beta_q), q_form)
+    N_lag= df["N_lag"].values
+    dN   = dN_pred_from_Nlag(N_lag, p_t, q_t, m, inflow_dict, outflow_dict, gamma_in_params, delta_out_params)
+    return dN, p_t, q_t
+
+def residuals_pair(params, df, price_array, p_event_col, q_event_col, p_model, q_form, inflow_dict, outflow_dict):
+    _, q_start, _, _, m_idx, _ = get_param_indices(p_model)
+    q0 = params[q_start]
+    m  = params[m_idx]
+    if m <= df[CUM_COL].max() or q0 < 0:
+        return np.ones(len(df)) * 1e6
+    dN_predicted, _, _ = compute_prediction_pair(df, params, price_array, p_event_col, q_event_col, p_model, q_form, inflow_dict, outflow_dict)
+    if np.any(np.isnan(dN_predicted)) or np.allclose(dN_predicted, 0):
+        return np.ones(len(df)) * 1e6
+    return df[NEW_COL].values - dN_predicted
+
+def fit_bass_pair(df, price_array, p_event_col, q_event_col, p_model, q_form, inflow_dict, outflow_dict):
+    try:
+        m_guess = 1.2 * df[CUM_COL].max()
+        n_comp  = len(COMPETITORS)
+        _, q_start, gamma_start, delta_start, m_idx, total = get_param_indices(p_model)
+
+        if p_model in ["additive", "nonlinear_event"]:
+            p_init = [0.001, 0.01, 0.01];  p_lo = [0, -10, -10];  p_hi = [1, 10, 10]
+        else:
+            p_init = [0.001, 0.01, 0.01, 0.01];  p_lo = [0, -10, -10, -10];  p_hi = [1, 10, 10, 10]
+
+        q_init = [0.01, 0.01];  q_lo = [0, -10];  q_hi = [1, 10]
+        gamma_init = [0.0001] * n_comp;  gamma_lo = [-0.01] * n_comp;  gamma_hi = [0.01] * n_comp
+        delta_init = [0.0001] * n_comp;  delta_lo = [-0.01] * n_comp;  delta_hi = [0.01] * n_comp
+
+        init   = p_init + q_init + gamma_init + delta_init + [m_guess]
+        lo     = p_lo   + q_lo   + gamma_lo   + delta_lo   + [0.875 * m_guess]
+        hi     = p_hi   + q_hi   + gamma_hi   + delta_hi   + [20  * m_guess]
+
+        res = least_squares(residuals_pair, init, bounds=(lo, hi),
+                            args=(df, price_array, p_event_col, q_event_col, p_model, q_form, inflow_dict, outflow_dict),
+                            method="trf")
+        if not res.success:
+            return None
+
+        params = res.x
+        eps = 1e-6
+        n   = len(df)
+        k   = len(params)
+
+        y_pred, _, _ = compute_prediction_pair(df, params, price_array, p_event_col, q_event_col, p_model, q_form, inflow_dict, outflow_dict)
+
+        J = []
+        for i in range(k):
+            p_eps = params.copy();  p_eps[i] += eps
+            y_eps, _, _ = compute_prediction_pair(df, p_eps, price_array, p_event_col, q_event_col, p_model, q_form, inflow_dict, outflow_dict)
+            J.append((y_eps - y_pred) / eps)
+        J = np.array(J).T
+
+        try:
+            cond = np.linalg.cond(J.T @ J)
+        except np.linalg.LinAlgError:
+            cond = np.nan
+
+        resid_vec = df[NEW_COL].values - y_pred
+        sigma2    = np.sum(resid_vec**2) / (n - k)
+
+        try:
+            cov = sigma2 * np.linalg.inv(J.T @ J + 1e-12 * np.eye(k))
+            se  = np.sqrt(np.diag(cov))
+        except np.linalg.LinAlgError:
+            se = np.full(k, np.nan)
+
+        tvals = params / (se + 1e-12)
+        pvals = 2 * (1 - t.cdf(np.abs(tvals), df=n-k))
+
+        res.se, res.tvals, res.pvals, res.cond = se, tvals, pvals, cond
+        return res
+
+    except Exception as e:
+        print(f"  拟合异常: {e}")
+        return None
+
+# --------- 加载迁移数据 ----------
+def load_migration_data(migration_path, main_df):
+    try:
+        df_mig = pd.read_csv(migration_path)
+        df_mig['date'] = pd.to_datetime(df_mig['date'], format='mixed', dayfirst=False)
+    except Exception as e:
+        print(f"⚠️ 无法读取迁移数据: {e}");  return None, None
+
+    print(f"\n📊 迁移数据列名: {df_mig.columns.tolist()}")
+    print(f"📊 迁移数据日期范围: {df_mig['date'].min()} 到 {df_mig['date'].max()}")
+    print(f"📊 迁移数据行数: {len(df_mig)}")
+
+    if 'date' not in df_mig.columns:
+        print("⚠️ 迁移数据缺少 'date' 列");  return None, None
+
+    date_range = pd.date_range(start=main_df[DATE_COL].min(), end=main_df[DATE_COL].max(), freq='D')
+    df_full    = pd.DataFrame({DATE_COL: date_range})
+    df_merged  = df_full.merge(df_mig, left_on=DATE_COL, right_on='date', how='left')
+
+    # 列名映射：coin -> 文件中实际列名（根据需要修改/扩充）
+    inflow_col_mapping = {
+        "Aptos": "in_from_Aptos",
+        # "Alephzero": "in_from_Alephzero",
+        # "Arbitrum": "in_from_Arbitrum",
+        "Arweave": "in_from_Arweave",
+        "Avalanche": "in_from_Avalanche",
+        "Besu": "in_from_Besu",
+        "BNBChain": "in_from_BNBChain",
+        "BTC": "in_from_BTC",
+        "Cosmos": "in_from_Cosmos",
+        # "ETC": "in_from_ETC",
+        "Erigon": "in_from_Erigon",
+        "EthereumPow": "in_from_Ethereumpow",
+        "FLOW": "in_from_FLOW",
+        "Harmony": "in_from_Harmony",
+        # "Helium": "in_from_Helium",
+        "Near": "in_from_Near",
+        "Nethermind": "in_from_Nethermind",
+        "Optimism": "in_from_Optimism",
+        # "Polkadot": "in_from_Polkadot",
+        "Polygon": "in_from_Polygon",
+        "Reth": "in_from_Reth",
+        # "Ronin": "in_from_Ronin",
+        # "SKALE": "in_from_SKALE",
+        "Sui": "in_from_Sui",
+        # "SecretNetwork": "in_from_SecretNetwork",
+        "Solana": "in_from_Solana",
+        # "Starknet": "in_from_Starknet",
+        "THETA": "in_from_THETA",
+        "TRON": "in_from_TRON",
+        # "Zksync": "in_from_Zksync",
+    }
+    
+    outflow_col_mapping = {
+        "Aptos": "out_to_Aptos",
+        # "Alephzero": "out_to_Alephzero",
+        # "Arbitrum": "out_to_Arbitrum",
+        "Arweave": "out_to_Arweave",
+        "Avalanche": "out_to_Avalanche",
+        "Besu": "out_to_Besu",
+        "BNBChain": "out_to_BNBChain",
+        "BTC": "out_to_BTC",
+        "Cosmos": "out_to_Cosmos",
+        # "ETC": "out_to_ETC",
+        "Erigon": "out_to_Erigon",
+        "EthereumPow": "out_to_Ethereumpow",
+        "FLOW": "out_to_FLOW",
+        "Harmony": "out_to_Harmony",
+        # "Helium": "out_to_Helium",
+        "Near": "out_to_Near",
+        "Nethermind": "out_to_Nethermind",
+        "Optimism": "out_to_Optimism",
+        # "Polkadot": "out_to_Polkadot",
+        "Polygon": "out_to_Polygon",
+        "Reth": "out_to_Reth",
+        # "Ronin": "out_to_Ronin",
+        # "SKALE": "out_to_SKALE",
+        "Sui": "out_to_Sui",
+        # "SecretNetwork": "out_to_Secretnetwork",  # 注意这里文件里是小写 n
+        "Solana": "out_to_Solana",
+        # "Starknet": "out_to_Starknet",
+        "THETA": "out_to_THETA",
+        "TRON": "out_to_TRON",
+        # "Zksync": "out_to_Zksync",
+    }
+
+    df_merged_indexed = df_merged.set_index(DATE_COL)
+    main_dates        = pd.DatetimeIndex(main_df[DATE_COL].values)
+    inflow_dict_aligned  = {}
+    outflow_dict_aligned = {}
+
+    for coin in COMPETITORS:
+        actual_col = inflow_col_mapping.get(coin)
+        if actual_col and actual_col in df_merged.columns:
+            inflow_dict_aligned[coin] = df_merged_indexed.reindex(main_dates)[actual_col].fillna(0).values
+            print(f"✅ 成功加载 {coin} 的迁入数据列: {actual_col}")
+        else:
+            inflow_dict_aligned[coin] = np.zeros(len(main_df))
+            print(f"⚠️ 未找到 {coin} 对应的迁入列: {actual_col}")
+
+        actual_col = outflow_col_mapping.get(coin)
+        if actual_col and actual_col in df_merged.columns:
+            outflow_dict_aligned[coin] = df_merged_indexed.reindex(main_dates)[actual_col].fillna(0).values
+            print(f"✅ 成功加载 {coin} 的迁出数据列: {actual_col}")
+        else:
+            outflow_dict_aligned[coin] = np.zeros(len(main_df))
+            print(f"⚠️ 未找到 {coin} 对应的迁出列: {actual_col}")
+
+    print("\n📈 迁移数据统计（窗口期内）:")
+    print("🔥 方法：网络效应中迁入和迁出都使用标准化值(t-1)，直接迁入使用原始值(t)")
+    for coin in COMPETITORS:
+        M_in  = inflow_dict_aligned[coin]
+        M_out = outflow_dict_aligned[coin]
+        nz_in  = np.sum(M_in  > 0)
+        nz_out = np.sum(M_out > 0)
+        if nz_in > 0 or nz_out > 0:
+            print(f"  {coin:20s}:")
+            print(f"    迁入: 总数={np.sum(M_in):6.0f}, 非零天数={nz_in:4d}")
+            print(f"    迁出: 总数={np.sum(M_out):6.0f}, 非零天数={nz_out:4d}")
+        else:
+            print(f"  {coin:20s}: 无数据")
+
+    return inflow_dict_aligned, outflow_dict_aligned
+
+# ----------------- 主程序 -----------------
+def main():
+    try:
+        df_raw = pd.read_csv(CSV_PATH, parse_dates=[DATE_COL])
+    except Exception as e:
+        print(f"无法读取 CSV: {e}");  sys.exit(1)
+
+    df_raw = df_raw.sort_values(DATE_COL).reset_index(drop=True)
+    results       = []
+    combos_done   = 0
+    combos_skipped= 0
+
+    for p_event_col in P_EVENT_LIST:
+        for q_event_col in Q_EVENT_LIST:
+            required_cols = [DATE_COL, NEW_COL, CUM_COL, p_event_col, q_event_col] + list(PRICE_LAG_COLS)
+            missing = [c for c in required_cols if c not in df_raw.columns]
+            if missing:
+                print(f"⚠️ 跳过组合 (缺列)：P={p_event_col}, Q={q_event_col}, 缺失: {missing[:5]}")
+                combos_skipped += 1;  continue
+
+            df = df_raw[[DATE_COL, NEW_COL, CUM_COL, p_event_col, q_event_col] + list(PRICE_LAG_COLS)].copy()
+            df = df.fillna(method="ffill").fillna(0)
+            df = df[(df[DATE_COL] >= pd.to_datetime(START_DATE)) & (df[DATE_COL] <= pd.to_datetime(END_DATE))].copy()
+
+            if df.empty:
+                print(f"⚠️ 空窗口，跳过 P={p_event_col}, Q={q_event_col}")
+                combos_skipped += 1;  continue
+
+            # ===== 各peak独立归零 =====
+            cum_offset = df[CUM_COL].iloc[0] - df[NEW_COL].iloc[0]
+            df[CUM_COL] = df[CUM_COL] - cum_offset
+            df["N_lag"] = df[CUM_COL].shift(1).fillna(0).values
+            # ==========================
+
+            inflow_dict, outflow_dict = load_migration_data(MIGRATION_PATH, df)
+            if inflow_dict is None or outflow_dict is None:
+                print(f"⚠️ 无法加载迁移数据，跳过 P={p_event_col}, Q={q_event_col}")
+                combos_skipped += 1;  continue
+
+            for price_col in PRICE_LAG_COLS:
+                raw_price = df[price_col].values.astype(float)
+                try:
+                    price_transforms = {
+                        "linear": normalize(raw_price),
+                        "log":    normalize(np.log(np.maximum(raw_price, 1e-8))),
+                        "exp":    normalize(np.exp(np.clip(raw_price, -50, 50)))
+                    }
+                except Exception:
+                    print(f"⚠️ price transform error for {price_col}, skipping.");  continue
+
+                for pt_name, price_arr in price_transforms.items():
+                    for p_model in ["additive", "nonlinear_event", "interaction_linear", "interaction_nonlinear"]:
+                        for q_form in ["linear", "log", "exp"]:
+                            model_tag = (f"P={p_event_col} | Q={q_event_col} | "
+                                         f"price={price_col}({pt_name}) | p_model={p_model} | q_form={q_form}")
+                            print(f"\n→ 拟合: {model_tag}")
+
+                            res = fit_bass_pair(df, price_arr, p_event_col, q_event_col, p_model, q_form, inflow_dict, outflow_dict)
+                            if res is None:
+                                print(" ✖ 拟合失败或不收敛，跳过。")
+                                combos_skipped += 1;  continue
+
+                            combos_done += 1
+                            params = res.x
+                            k      = len(params)
+
+                            dN_pred, p_t, q_t = compute_prediction_pair(
+                                df, params, price_arr, p_event_col, q_event_col,
+                                p_model, q_form, inflow_dict, outflow_dict)
+
+                            # -------- 计算全套指标 --------
+                            metrics = compute_metrics(df[NEW_COL].values, dN_pred, k)
+
+                            # 动态生成参数名
+                            if p_model in ["additive", "nonlinear_event"]:
+                                param_names = ["p0", "alpha", "beta", "q0", "beta_q"]
+                            else:
+                                param_names = ["p0", "alpha", "beta", "gamma_price", "q0", "beta_q"]
+                            for coin in COMPETITORS:
+                                param_names.append(f"gamma_in_{coin}")
+                            for coin in COMPETITORS:
+                                param_names.append(f"delta_out_{coin}")
+                            param_names.append("m")
+
+                            row = {
+                                "P_event":   p_event_col,
+                                "Q_event":   q_event_col,
+                                "price_col": price_col,
+                                "price_tf":  pt_name,
+                                "p_model":   p_model,
+                                "q_form":    q_form,
+                                # ---- 全套指标 ----
+                                "MAD":     metrics["MAD"],
+                                "SSE":     metrics["SSE"],
+                                "MSE":     metrics["MSE"],
+                                "RMSE":    metrics["RMSE"],
+                                "R2":      metrics["R2"],
+                                "Adj_R2":  metrics["Adj_R2"],
+                                "MAPE":    metrics["MAPE"],
+                                "WAPE":    metrics["WAPE"],
+                                "cond":    float(getattr(res, "cond", np.nan))
+                            }
+
+                            for i, name in enumerate(param_names):
+                                row[name]          = float(params[i]) if i < len(params) else np.nan
+                                row["se_" + name]  = float(res.se[i])    if hasattr(res, "se")    and i < len(res.se)    else np.nan
+                                row["t_"  + name]  = float(res.tvals[i]) if hasattr(res, "tvals") and i < len(res.tvals) else np.nan
+                                row["p_"  + name]  = float(res.pvals[i]) if hasattr(res, "pvals") and i < len(res.pvals) else np.nan
+
+                            results.append(row)
+
+    df_results = pd.DataFrame(results)
+    df_results.to_csv(OUTPUT_CSV, index=False)
+    print(f"\n✅ 完成。组合成功 {combos_done} 次，跳过 {combos_skipped} 次。")
+    print(f"✅ 结果已保存：{OUTPUT_CSV}")
+
+if __name__ == "__main__":
+    main()

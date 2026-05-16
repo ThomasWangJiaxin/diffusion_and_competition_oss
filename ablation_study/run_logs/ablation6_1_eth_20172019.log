@@ -1,0 +1,15 @@
+
+📊 数据窗口: 2017-01-01 ~ 2019-01-01,  共 731 行
+
+→ 拟合 M6.1: P=eth_p_event_sum_30(linear) | Q=eth_q_event_sum_7(linear)
+  p0         =     0.000510  SE=0.000039  t=12.965  p=0.0000
+  beta       =    -0.000036  SE=0.000019  t=-1.916  p=0.0558
+  q0         =     0.005638  SE=0.000276  t=20.421  p=0.0000
+  beta_q     =     0.001890  SE=0.000106  t=17.809  p=0.0000
+  m          = 30553.576112  SE=389.649862  t=78.413  p=0.0000
+  MAD=10.0156  RMSE=13.9671  R²=0.6674  Adj_R²=0.6651
+  MAPE=36.32%  WAPE=26.63%
+  cond(J'J) = 4.8687e+14
+
+✅ 完成。组合成功 1 次，跳过 0 次。
+✅ 结果已保存：/home/lab0/survival_diffusion_github/ablation_study/ablation_M6_1_eth_pevent_qevent_20172019.csv

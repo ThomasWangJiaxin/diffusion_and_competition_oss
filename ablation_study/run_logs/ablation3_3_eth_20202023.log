@@ -1,0 +1,78 @@
+
+📊 数据窗口: 2020-10-01 ~ 2023-01-01,  共 823 行
+
+📊 迁移数据列名: ['date', 'in_from_Aptos', 'in_from_Alephzero', 'in_from_Arbitrum', 'in_from_Arweave', 'in_from_Avalanche', 'in_from_Besu', 'in_from_BNBChain', 'in_from_BTC', 'in_from_Cosmos', 'in_from_ETC', 'in_from_Erigon', 'in_from_Ethereumpow', 'in_from_FLOW', 'in_from_Harmony', 'in_from_Helium', 'in_from_Near', 'in_from_Nethermind', 'in_from_Optimism', 'in_from_Polkadot', 'in_from_Polygon', 'in_from_Reth', 'in_from_Ronin', 'in_from_SKALE', 'in_from_Sui', 'in_from_SecretNetwork', 'in_from_Solana', 'in_from_Starknet', 'in_from_THETA', 'in_from_TRON', 'in_from_Zksync', 'total_in', 'out_to_Aptos', 'out_to_Alephzero', 'out_to_Arbitrum', 'out_to_Arweave', 'out_to_Avalanche', 'out_to_Besu', 'out_to_BNBChain', 'out_to_BTC', 'out_to_Cosmos', 'out_to_ETC', 'out_to_Erigon', 'out_to_Ethereumpow', 'out_to_FLOW', 'out_to_Harmony', 'out_to_Helium', 'out_to_Near', 'out_to_Nethermind', 'out_to_Optimism', 'out_to_Polkadot', 'out_to_Polygon', 'out_to_Reth', 'out_to_Ronin', 'out_to_SKALE', 'out_to_Sui', 'out_to_Secretnetwork', 'out_to_Solana', 'out_to_Starknet', 'out_to_THETA', 'out_to_TRON', 'out_to_Zksync', 'total_out']
+📊 迁移数据日期范围: 2014-01-12 00:00:00 到 2025-12-30 00:00:00
+Loaded outflow BTC: out_to_BTC
+Loaded outflow Solana: out_to_Solana
+Loaded outflow Cosmos: out_to_Cosmos
+Loaded outflow BNBChain: out_to_BNBChain
+Loaded outflow Erigon: out_to_Erigon
+Loaded outflow Optimism: out_to_Optimism
+Loaded outflow TRON: out_to_TRON
+Loaded outflow Aptos: out_to_Aptos
+Loaded outflow Sui: out_to_Sui
+Loaded outflow Besu: out_to_Besu
+Loaded outflow Nethermind: out_to_Nethermind
+Loaded outflow Avalanche: out_to_Avalanche
+Loaded outflow Polygon: out_to_Polygon
+Loaded outflow Arweave: out_to_Arweave
+Loaded outflow Near: out_to_Near
+Loaded outflow FLOW: out_to_FLOW
+Loaded outflow Harmony: out_to_Harmony
+Loaded outflow Reth: out_to_Reth
+Loaded outflow Ethereumpow: out_to_Ethereumpow
+Loaded outflow THETA: out_to_THETA
+Outflow data summary (window):
+  BTC                 : total=  1733, nonzero_days= 680
+  Solana              : total=  1259, nonzero_days= 533
+  Cosmos              : total=   520, nonzero_days= 362
+  BNBChain            : total=   523, nonzero_days= 343
+  Erigon              : total=   441, nonzero_days= 319
+  Optimism            : total=   269, nonzero_days= 220
+  TRON                : total=   169, nonzero_days= 149
+  Aptos               : total=   345, nonzero_days= 160
+  Sui                 : total=   211, nonzero_days= 111
+  Besu                : total=   190, nonzero_days= 157
+  Nethermind          : total=   121, nonzero_days= 108
+  Avalanche           : total=   222, nonzero_days= 169
+  Polygon             : total=   134, nonzero_days= 126
+  Arweave             : total=    71, nonzero_days=  65
+  Near                : total=     4, nonzero_days=   4
+  FLOW                : total=   102, nonzero_days=  95
+  Harmony             : total=    67, nonzero_days=  59
+  Reth                : total=    77, nonzero_days=  14
+  Ethereumpow         : total=    47, nonzero_days=  21
+  THETA               : total=    31, nonzero_days=  31
+
+-> Fitting M2.3: price=eth_ma_21d(log)
+  p0                        =     0.000213  SE=0.000248  t=0.858  p=0.3911
+  alpha                     =     0.000030  SE=0.000035  t=0.851  p=0.3952
+  q0                        =     0.000057  SE=0.000284  t=0.201  p=0.8410
+  delta_out_BTC             =    -0.000014  SE=0.000017  t=-0.805  p=0.4213
+  delta_out_Solana          =    -0.000005  SE=0.000007  t=-0.687  p=0.4925
+  delta_out_Cosmos          =    -0.000008  SE=0.000010  t=-0.764  p=0.4452
+  delta_out_BNBChain        =    -0.000011  SE=0.000014  t=-0.784  p=0.4335
+  delta_out_Erigon          =    -0.000006  SE=0.000008  t=-0.737  p=0.4612
+  delta_out_Optimism        =    -0.000005  SE=0.000007  t=-0.734  p=0.4634
+  delta_out_TRON            =    -0.000004  SE=0.000006  t=-0.748  p=0.4547
+  delta_out_Aptos           =    -0.000000  SE=0.000003  t=-0.028  p=0.9775
+  delta_out_Sui             =     0.000003  SE=0.000005  t=0.552  p=0.5811
+  delta_out_Besu            =    -0.000008  SE=0.000011  t=-0.744  p=0.4572
+  delta_out_Nethermind      =    -0.000001  SE=0.000003  t=-0.464  p=0.6429
+  delta_out_Avalanche       =    -0.000009  SE=0.000012  t=-0.759  p=0.4480
+  delta_out_Polygon         =    -0.000004  SE=0.000006  t=-0.697  p=0.4858
+  delta_out_Arweave         =    -0.000002  SE=0.000004  t=-0.564  p=0.5729
+  delta_out_Near            =     0.000004  SE=0.000006  t=0.726  p=0.4680
+  delta_out_FLOW            =    -0.000008  SE=0.000010  t=-0.783  p=0.4338
+  delta_out_Harmony         =    -0.000001  SE=0.000003  t=-0.291  p=0.7708
+  delta_out_Reth            =     0.000000  SE=0.000003  t=0.125  p=0.9007
+  delta_out_Ethereumpow     =    -0.000014  SE=0.000019  t=-0.728  p=0.4668
+  delta_out_THETA           =    -0.000003  SE=0.000004  t=-0.668  p=0.5046
+  m                         = 130060.826895  SE=150607.454578  t=0.864  p=0.3881
+  MAD=6.2348  RMSE=8.2123  R2=0.3685  Adj_R2=0.3495
+  MAPE=33.98%  WAPE=24.07%
+  cond = 7.9210e+21
+
+✅ 完成。组合成功 1 次，跳过 0 次。
+✅ 结果已保存：/home/lab0/survival_diffusion_github/ablation_study/ablation_M3_3_eth_price_outflow_20202023.csv

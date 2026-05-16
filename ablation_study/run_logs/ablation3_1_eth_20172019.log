@@ -1,0 +1,14 @@
+
+📊 数据窗口: 2017-01-01 ~ 2019-01-01,  共 731 行
+
+→ 拟合 M3.1: price=eth_price_lag1(log)
+  p0       =     0.000597  SE=0.000083  t=7.199  p=0.0000
+  alpha    =     0.000202  SE=0.000046  t=4.385  p=0.0000
+  q0       =     0.006707  SE=0.000430  t=15.612  p=0.0000
+  m        = 29791.739402  SE=356.275633  t=83.620  p=0.0000
+  MAD=11.4829  RMSE=16.3343  R²=0.5451  Adj_R²=0.5426
+  MAPE=35.46%  WAPE=30.53%
+  cond(J'J) = 2.6012e+14
+
+✅ 完成。组合成功 1 次，跳过 0 次。
+✅ 结果已保存：/home/lab0/survival_diffusion_github/ablation_study/ablation_M3_1_eth_price_only_20172019.csv

@@ -1,0 +1,14 @@
+
+📊 数据窗口: 2017-01-01 ~ 2019-01-01,  共 731 行
+
+→ 拟合 M2.1: Q=eth_q_event_sum_7(linear)
+  p0         =     0.000489  SE=0.000038  t=12.860  p=0.0000
+  q0         =     0.005743  SE=0.000270  t=21.299  p=0.0000
+  beta_q     =     0.001886  SE=0.000107  t=17.666  p=0.0000
+  m          = 30471.307420  SE=377.406217  t=80.739  p=0.0000
+  MAD=10.0478  RMSE=14.0022  R²=0.6657  Adj_R²=0.6639
+  MAPE=36.09%  WAPE=26.71%
+  cond(J'J) = 2.1789e+14
+
+✅ 完成。组合成功 1 次，跳过 0 次。
+✅ 结果已保存：/home/lab0/survival_diffusion_github/ablation_study/ablation_M2_1_eth_qevent_only_20172019.csv

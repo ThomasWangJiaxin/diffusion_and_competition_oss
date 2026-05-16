@@ -1,0 +1,15 @@
+
+📊 数据窗口: 2020-10-01 ~ 2022-10-01,  共 731 行
+
+→ 拟合 M6.1: P=btc_p_event_sum_7(linear) | Q=btc_q_event_sum_30(linear)
+  p0         =     0.001004  SE=0.000060  t=16.609  p=0.0000
+  beta       =     0.000336  SE=0.000048  t=6.941  p=0.0000
+  q0         =     0.003427  SE=0.000301  t=11.373  p=0.0000
+  beta_q     =     0.000078  SE=0.000133  t=0.581  p=0.5612
+  m          = 34733.613046  SE=860.492446  t=40.365  p=0.0000
+  MAD=13.5279  RMSE=21.2880  R²=0.2298  Adj_R²=0.2245
+  MAPE=42.02%  WAPE=33.40%
+  cond(J'J) = 5.9641e+14
+
+✅ 完成。组合成功 1 次，跳过 0 次。
+✅ 结果已保存：/home/lab0/survival_diffusion_github/ablation_study/ablation_M6_1_btc_pevent_qevent_20202022.csv

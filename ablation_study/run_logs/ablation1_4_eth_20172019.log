@@ -1,0 +1,48 @@
+
+📊 数据窗口: 2017-01-01 ~ 2019-01-01,  共 731 行
+
+📊 迁移数据列名: ['date', 'in_from_Aptos', 'in_from_Alephzero', 'in_from_Arbitrum', 'in_from_Arweave', 'in_from_Avalanche', 'in_from_Besu', 'in_from_BNBChain', 'in_from_BTC', 'in_from_Cosmos', 'in_from_ETC', 'in_from_Erigon', 'in_from_Ethereumpow', 'in_from_FLOW', 'in_from_Harmony', 'in_from_Helium', 'in_from_Near', 'in_from_Nethermind', 'in_from_Optimism', 'in_from_Polkadot', 'in_from_Polygon', 'in_from_Reth', 'in_from_Ronin', 'in_from_SKALE', 'in_from_Sui', 'in_from_SecretNetwork', 'in_from_Solana', 'in_from_Starknet', 'in_from_THETA', 'in_from_TRON', 'in_from_Zksync', 'total_in', 'out_to_Aptos', 'out_to_Alephzero', 'out_to_Arbitrum', 'out_to_Arweave', 'out_to_Avalanche', 'out_to_Besu', 'out_to_BNBChain', 'out_to_BTC', 'out_to_Cosmos', 'out_to_ETC', 'out_to_Erigon', 'out_to_Ethereumpow', 'out_to_FLOW', 'out_to_Harmony', 'out_to_Helium', 'out_to_Near', 'out_to_Nethermind', 'out_to_Optimism', 'out_to_Polkadot', 'out_to_Polygon', 'out_to_Reth', 'out_to_Ronin', 'out_to_SKALE', 'out_to_Sui', 'out_to_Secretnetwork', 'out_to_Solana', 'out_to_Starknet', 'out_to_THETA', 'out_to_TRON', 'out_to_Zksync', 'total_out']
+📊 迁移数据日期范围: 2014-01-12 00:00:00 到 2025-12-30 00:00:00
+✅ 成功加载 BTC 的迁入数据列: in_from_BTC
+✅ 成功加载 BTC 的迁出数据列: out_to_BTC
+✅ 成功加载 Solana 的迁入数据列: in_from_Solana
+✅ 成功加载 Solana 的迁出数据列: out_to_Solana
+✅ 成功加载 Cosmos 的迁入数据列: in_from_Cosmos
+✅ 成功加载 Cosmos 的迁出数据列: out_to_Cosmos
+✅ 成功加载 TRON 的迁入数据列: in_from_TRON
+✅ 成功加载 TRON 的迁出数据列: out_to_TRON
+
+📈 迁移数据统计（窗口期内）:
+  BTC                 :
+    迁入: 总数=  4581, 非零天数= 691
+    迁出: 总数=  2571, 非零天数= 639
+  Solana              :
+    迁入: 总数=    11, 非零天数=  11
+    迁出: 总数=    71, 非零天数=  46
+  Cosmos              :
+    迁入: 总数=    78, 非零天数=  71
+    迁出: 总数=   230, 非零天数= 182
+  TRON                :
+    迁入: 总数=   117, 非零天数=  91
+    迁出: 总数=   234, 非零天数= 135
+
+→ 拟合 M1.4: Pure Bass + In-flow Effects + Out-flow Effects
+
+===== M1.4 拟合结果 =====
+  p0                        =     0.000866  SE=0.000034  t=25.305  p=0.0000
+  q0                        =     0.002718  SE=0.000257  t=10.568  p=0.0000
+  gamma_in_BTC              =     0.000387  SE=0.000028  t=13.964  p=0.0000
+  gamma_in_Solana           =    -0.000020  SE=0.000041  t=-0.494  p=0.6211
+  gamma_in_Cosmos           =     0.000065  SE=0.000025  t=2.546  p=0.0111
+  gamma_in_TRON             =     0.000160  SE=0.000029  t=5.458  p=0.0000
+  delta_out_BTC             =    -0.000172  SE=0.000026  t=-6.561  p=0.0000
+  delta_out_Solana          =     0.000028  SE=0.000030  t=0.933  p=0.3512
+  delta_out_Cosmos          =    -0.000009  SE=0.000027  t=-0.336  p=0.7366
+  delta_out_TRON            =     0.000028  SE=0.000024  t=1.190  p=0.2345
+  m                         = 33778.391763  SE=839.001463  t=40.260  p=0.0000
+
+  MAD=8.0010  RMSE=10.8377  R²=0.7998  Adj_R²=0.7967
+  MAPE=27.74%  WAPE=21.27%
+  cond(J'J) = 5.2787e+15
+
+✅ 结果已保存：/home/lab0/survival_diffusion_github/ablation_study/ablation_M1_4_eth_inflow_outflow_20172019.csv

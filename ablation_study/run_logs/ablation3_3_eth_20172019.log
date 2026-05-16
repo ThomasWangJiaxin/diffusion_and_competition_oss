@@ -1,0 +1,30 @@
+
+📊 数据窗口: 2017-01-01 ~ 2019-01-01,  共 731 行
+
+📊 迁移数据列名: ['date', 'in_from_Aptos', 'in_from_Alephzero', 'in_from_Arbitrum', 'in_from_Arweave', 'in_from_Avalanche', 'in_from_Besu', 'in_from_BNBChain', 'in_from_BTC', 'in_from_Cosmos', 'in_from_ETC', 'in_from_Erigon', 'in_from_Ethereumpow', 'in_from_FLOW', 'in_from_Harmony', 'in_from_Helium', 'in_from_Near', 'in_from_Nethermind', 'in_from_Optimism', 'in_from_Polkadot', 'in_from_Polygon', 'in_from_Reth', 'in_from_Ronin', 'in_from_SKALE', 'in_from_Sui', 'in_from_SecretNetwork', 'in_from_Solana', 'in_from_Starknet', 'in_from_THETA', 'in_from_TRON', 'in_from_Zksync', 'total_in', 'out_to_Aptos', 'out_to_Alephzero', 'out_to_Arbitrum', 'out_to_Arweave', 'out_to_Avalanche', 'out_to_Besu', 'out_to_BNBChain', 'out_to_BTC', 'out_to_Cosmos', 'out_to_ETC', 'out_to_Erigon', 'out_to_Ethereumpow', 'out_to_FLOW', 'out_to_Harmony', 'out_to_Helium', 'out_to_Near', 'out_to_Nethermind', 'out_to_Optimism', 'out_to_Polkadot', 'out_to_Polygon', 'out_to_Reth', 'out_to_Ronin', 'out_to_SKALE', 'out_to_Sui', 'out_to_Secretnetwork', 'out_to_Solana', 'out_to_Starknet', 'out_to_THETA', 'out_to_TRON', 'out_to_Zksync', 'total_out']
+📊 迁移数据日期范围: 2014-01-12 00:00:00 到 2025-12-30 00:00:00
+Loaded outflow BTC: out_to_BTC
+Loaded outflow Solana: out_to_Solana
+Loaded outflow Cosmos: out_to_Cosmos
+Loaded outflow TRON: out_to_TRON
+Outflow data summary (window):
+  BTC                 : total=  2571, nonzero_days= 639
+  Solana              : total=    71, nonzero_days=  46
+  Cosmos              : total=   230, nonzero_days= 182
+  TRON                : total=   234, nonzero_days= 135
+
+-> Fitting M2.3: price=eth_price_lag1(log)
+  p0                        =     0.000973  SE=0.000070  t=13.983  p=0.0000
+  alpha                     =     0.000144  SE=0.000041  t=3.466  p=0.0006
+  q0                        =     0.004290  SE=0.000471  t=9.113  p=0.0000
+  delta_out_BTC             =    -0.000394  SE=0.000037  t=-10.612  p=0.0000
+  delta_out_Solana          =     0.000061  SE=0.000048  t=1.285  p=0.1994
+  delta_out_Cosmos          =    -0.000109  SE=0.000039  t=-2.763  p=0.0059
+  delta_out_TRON            =    -0.000120  SE=0.000034  t=-3.555  p=0.0004
+  m                         = 32081.103548  SE=726.172389  t=44.178  p=0.0000
+  MAD=10.5213  RMSE=14.8514  R2=0.6240  Adj_R2=0.6198
+  MAPE=34.20%  WAPE=27.97%
+  cond = 2.1587e+15
+
+✅ 完成。组合成功 1 次，跳过 0 次。
+✅ 结果已保存：/home/lab0/survival_diffusion_github/ablation_study/ablation_M3_3_eth_price_outflow_20172019.csv

@@ -1,0 +1,47 @@
+
+📊 数据窗口: 2017-01-01 ~ 2019-01-01,  共 731 行
+
+📊 迁移数据列名: ['date', 'in_from_Aptos', 'in_from_Alephzero', 'in_from_Arbitrum', 'in_from_Arweave', 'in_from_Avalanche', 'in_from_Besu', 'in_from_BNBChain', 'in_from_BTC', 'in_from_Cosmos', 'in_from_ETC', 'in_from_Erigon', 'in_from_Ethereumpow', 'in_from_FLOW', 'in_from_Harmony', 'in_from_Helium', 'in_from_Near', 'in_from_Nethermind', 'in_from_Optimism', 'in_from_Polkadot', 'in_from_Polygon', 'in_from_Reth', 'in_from_Ronin', 'in_from_SKALE', 'in_from_Sui', 'in_from_SecretNetwork', 'in_from_Solana', 'in_from_Starknet', 'in_from_THETA', 'in_from_TRON', 'in_from_Zksync', 'total_in', 'out_to_Aptos', 'out_to_Alephzero', 'out_to_Arbitrum', 'out_to_Arweave', 'out_to_Avalanche', 'out_to_Besu', 'out_to_BNBChain', 'out_to_BTC', 'out_to_Cosmos', 'out_to_ETC', 'out_to_Erigon', 'out_to_Ethereumpow', 'out_to_FLOW', 'out_to_Harmony', 'out_to_Helium', 'out_to_Near', 'out_to_Nethermind', 'out_to_Optimism', 'out_to_Polkadot', 'out_to_Polygon', 'out_to_Reth', 'out_to_Ronin', 'out_to_SKALE', 'out_to_Sui', 'out_to_Secretnetwork', 'out_to_Solana', 'out_to_Starknet', 'out_to_THETA', 'out_to_TRON', 'out_to_Zksync', 'total_out']
+📊 迁移数据日期范围: 2014-01-12 00:00:00 到 2025-12-30 00:00:00
+✅ 成功加载 BTC 的迁入数据列: in_from_BTC
+✅ 成功加载 BTC 的迁出数据列: out_to_BTC
+✅ 成功加载 Solana 的迁入数据列: in_from_Solana
+✅ 成功加载 Solana 的迁出数据列: out_to_Solana
+✅ 成功加载 Cosmos 的迁入数据列: in_from_Cosmos
+✅ 成功加载 Cosmos 的迁出数据列: out_to_Cosmos
+✅ 成功加载 TRON 的迁入数据列: in_from_TRON
+✅ 成功加载 TRON 的迁出数据列: out_to_TRON
+
+📈 迁移数据统计（窗口期内）:
+  BTC                 :
+    迁入: 总数=  4581, 非零天数= 691
+    迁出: 总数=  2571, 非零天数= 639
+  Solana              :
+    迁入: 总数=    11, 非零天数=  11
+    迁出: 总数=    71, 非零天数=  46
+  Cosmos              :
+    迁入: 总数=    78, 非零天数=  71
+    迁出: 总数=   230, 非零天数= 182
+  TRON                :
+    迁入: 总数=   117, 非零天数=  91
+    迁出: 总数=   234, 非零天数= 135
+
+→ 拟合 M3.4: price=eth_price_lag1(log)
+  p0                        =     0.000436  SE=0.000151  t=2.897  p=0.0039
+  alpha                     =     0.000084  SE=0.000027  t=3.124  p=0.0019
+  q0                        =     0.000000  SE=0.000199  t=0.000  p=1.0000
+  gamma_in_BTC              =     0.000109  SE=0.000045  t=2.420  p=0.0158
+  gamma_in_Solana           =    -0.000006  SE=0.000007  t=-0.823  p=0.4109
+  gamma_in_Cosmos           =     0.000014  SE=0.000009  t=1.616  p=0.1065
+  gamma_in_TRON             =     0.000028  SE=0.000014  t=1.925  p=0.0546
+  delta_out_BTC             =    -0.000056  SE=0.000023  t=-2.428  p=0.0154
+  delta_out_Solana          =     0.000007  SE=0.000006  t=1.114  p=0.2658
+  delta_out_Cosmos          =    -0.000003  SE=0.000006  t=-0.531  p=0.5954
+  delta_out_TRON            =     0.000006  SE=0.000006  t=0.859  p=0.3909
+  m                         = 85920.199943  SE=28810.811119  t=2.982  p=0.0030
+  MAD=7.5720  RMSE=10.4561  R²=0.8136  Adj_R²=0.8105
+  MAPE=25.79%  WAPE=20.13%
+  cond(J'J) = 8.7313e+19
+
+✅ 完成。组合成功 1 次，跳过 0 次。
+✅ 结果已保存：/home/lab0/survival_diffusion_github/ablation_study/ablation_M3_4_eth_price_inflow_outflow_20172019.csv

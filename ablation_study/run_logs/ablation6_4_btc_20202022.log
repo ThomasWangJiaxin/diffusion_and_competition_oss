@@ -1,0 +1,115 @@
+
+📊 数据窗口: 2020-10-01 ~ 2022-10-01,  共 731 行
+✅ 成功加载 ETH 的迁入数据列: in_from_ETH
+✅ 成功加载 ETH 的迁出数据列: out_to_ETH
+✅ 成功加载 Dogecoin 的迁入数据列: in_from_Dogecoin
+✅ 成功加载 Dogecoin 的迁出数据列: out_to_Dogecoin
+✅ 成功加载 Lightning Network 的迁入数据列: in_from_Lightning Network
+✅ 成功加载 Lightning Network 的迁出数据列: out_to_Lightning Network
+✅ 成功加载 Solana 的迁入数据列: in_from_Solana
+✅ 成功加载 Solana 的迁出数据列: out_to_Solana
+✅ 成功加载 Monero 的迁入数据列: in_from_Monero
+✅ 成功加载 Monero 的迁出数据列: out_to_Monero
+✅ 成功加载 Litecoin 的迁入数据列: in_from_Litecoin
+✅ 成功加载 Litecoin 的迁出数据列: out_to_Litecoin
+✅ 成功加载 BTCD 的迁入数据列: in_from_BTCD
+✅ 成功加载 BTCD 的迁出数据列: out_to_BTCD
+✅ 成功加载 Zcash 的迁入数据列: in_from_Zcash
+✅ 成功加载 Zcash 的迁出数据列: out_to_Zcash
+✅ 成功加载 BCOIN 的迁入数据列: in_from_BCOIN
+✅ 成功加载 BCOIN 的迁出数据列: out_to_BCOIN
+✅ 成功加载 TRON 的迁入数据列: in_from_TRON
+✅ 成功加载 TRON 的迁出数据列: out_to_TRON
+✅ 成功加载 Stacks 的迁入数据列: in_from_Stacks
+✅ 成功加载 Stacks 的迁出数据列: out_to_Stacks
+✅ 成功加载 BitcoinCash 的迁入数据列: in_from_BitcoinCash
+✅ 成功加载 BitcoinCash 的迁出数据列: out_to_BitcoinCash
+✅ 成功加载 BNBChain 的迁入数据列: in_from_BNBChain
+✅ 成功加载 BNBChain 的迁出数据列: out_to_BNBChain
+✅ 成功加载 LBTC 的迁入数据列: in_from_LBTC
+✅ 成功加载 LBTC 的迁出数据列: out_to_LBTC
+
+📈 迁移数据统计（窗口期内）:
+  ETH                 :
+    迁入: 总数=  1422, 非零天数= 595
+    迁出: 总数=  2569, 非零天数= 677
+  Dogecoin            :
+    迁入: 总数=  1076, 非零天数= 414
+    迁出: 总数=  1731, 非零天数= 387
+  Lightning Network   :
+    迁入: 总数=   256, 非零天数= 215
+    迁出: 总数=   529, 非零天数= 373
+  Solana              :
+    迁入: 总数=   405, 非零天数= 269
+    迁出: 总数=  1014, 非零天数= 445
+  Monero              :
+    迁入: 总数=   281, 非零天数= 209
+    迁出: 总数=   564, 非零天数= 344
+  Litecoin            :
+    迁入: 总数=   160, 非零天数= 137
+    迁出: 总数=   238, 非零天数= 178
+  BTCD                :
+    迁入: 总数=    84, 非零天数=  77
+    迁出: 总数=   194, 非零天数= 168
+  Zcash               :
+    迁入: 总数=    88, 非零天数=  81
+    迁出: 总数=   103, 非零天数=  98
+  BCOIN               :
+    迁入: 总数=    58, 非零天数=  56
+    迁出: 总数=   100, 非零天数=  91
+  TRON                :
+    迁入: 总数=    78, 非零天数=  74
+    迁出: 总数=   100, 非零天数=  90
+  Stacks              :
+    迁入: 总数=    60, 非零天数=  55
+    迁出: 总数=    93, 非零天数=  88
+  BitcoinCash         :
+    迁入: 总数=    38, 非零天数=  38
+    迁出: 总数=    44, 非零天数=  43
+  BNBChain            :
+    迁入: 总数=    62, 非零天数=  58
+    迁出: 总数=   207, 非零天数= 157
+  LBTC                :
+    迁入: 总数=    27, 非零天数=  26
+    迁出: 总数=    58, 非零天数=  52
+
+→ 拟合 M6.4: P=btc_p_event_sum_7(linear) | Q=btc_q_event_sum_30(linear)
+  p0                        =     0.001016  SE=0.000057  t=17.960  p=0.0000
+  beta                      =     0.000156  SE=0.000032  t=4.823  p=0.0000
+  q0                        =     0.001350  SE=0.000274  t=4.934  p=0.0000
+  beta_q                    =    -0.000208  SE=0.000095  t=-2.190  p=0.0289
+  gamma_in_ETH              =     0.000162  SE=0.000028  t=5.832  p=0.0000
+  gamma_in_Dogecoin         =     0.000077  SE=0.000026  t=2.983  p=0.0030
+  gamma_in_Lightning Network =     0.000006  SE=0.000024  t=0.244  p=0.8074
+  gamma_in_Solana           =     0.000162  SE=0.000036  t=4.477  p=0.0000
+  gamma_in_Monero           =     0.000081  SE=0.000022  t=3.635  p=0.0003
+  gamma_in_Litecoin         =     0.000101  SE=0.000024  t=4.218  p=0.0000
+  gamma_in_BTCD             =    -0.000012  SE=0.000024  t=-0.502  p=0.6159
+  gamma_in_Zcash            =    -0.000014  SE=0.000022  t=-0.629  p=0.5296
+  gamma_in_BCOIN            =     0.000037  SE=0.000023  t=1.616  p=0.1066
+  gamma_in_TRON             =    -0.000002  SE=0.000024  t=-0.080  p=0.9365
+  gamma_in_Stacks           =     0.000023  SE=0.000023  t=0.997  p=0.3192
+  gamma_in_BitcoinCash      =     0.000030  SE=0.000022  t=1.330  p=0.1838
+  gamma_in_BNBChain         =     0.000034  SE=0.000030  t=1.131  p=0.2585
+  gamma_in_LBTC             =    -0.000031  SE=0.000022  t=-1.435  p=0.1517
+  delta_out_ETH             =    -0.000099  SE=0.000028  t=-3.612  p=0.0003
+  delta_out_Dogecoin        =    -0.000051  SE=0.000026  t=-1.930  p=0.0540
+  delta_out_Lightning Network =    -0.000029  SE=0.000025  t=-1.153  p=0.2494
+  delta_out_Solana          =     0.000039  SE=0.000032  t=1.228  p=0.2198
+  delta_out_Monero          =    -0.000007  SE=0.000020  t=-0.337  p=0.7365
+  delta_out_Litecoin        =    -0.000046  SE=0.000023  t=-1.975  p=0.0487
+  delta_out_BTCD            =     0.000005  SE=0.000024  t=0.196  p=0.8445
+  delta_out_Zcash           =    -0.000043  SE=0.000023  t=-1.857  p=0.0637
+  delta_out_BCOIN           =     0.000016  SE=0.000022  t=0.724  p=0.4695
+  delta_out_TRON            =     0.000022  SE=0.000025  t=0.901  p=0.3680
+  delta_out_Stacks          =    -0.000010  SE=0.000022  t=-0.453  p=0.6507
+  delta_out_BitcoinCash     =     0.000013  SE=0.000022  t=0.608  p=0.5434
+  delta_out_BNBChain        =    -0.000061  SE=0.000026  t=-2.366  p=0.0183
+  delta_out_LBTC            =    -0.000018  SE=0.000024  t=-0.742  p=0.4584
+  m                         = 39905.559202  SE=2015.304446  t=19.801  p=0.0000
+  MAD=10.1793  RMSE=15.5861  R²=0.5871  Adj_R²=0.5676
+  MAPE=30.23%  WAPE=25.13%
+  cond(J'J) = 2.5756e+16
+
+✅ 完成。组合成功 1 次，跳过 0 次。
+✅ 结果已保存：/home/lab0/survival_diffusion_github/ablation_study/ablation_M6_4_btc_pevent_qevent_inflow_outflow_20202022.csv

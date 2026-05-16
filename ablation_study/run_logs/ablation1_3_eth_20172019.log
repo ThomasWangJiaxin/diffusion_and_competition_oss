@@ -1,0 +1,32 @@
+
+📊 数据窗口: 2017-01-01 ~ 2019-01-01,  共 731 行
+
+📊 迁移数据列名: ['date', 'in_from_Aptos', 'in_from_Alephzero', 'in_from_Arbitrum', 'in_from_Arweave', 'in_from_Avalanche', 'in_from_Besu', 'in_from_BNBChain', 'in_from_BTC', 'in_from_Cosmos', 'in_from_ETC', 'in_from_Erigon', 'in_from_Ethereumpow', 'in_from_FLOW', 'in_from_Harmony', 'in_from_Helium', 'in_from_Near', 'in_from_Nethermind', 'in_from_Optimism', 'in_from_Polkadot', 'in_from_Polygon', 'in_from_Reth', 'in_from_Ronin', 'in_from_SKALE', 'in_from_Sui', 'in_from_SecretNetwork', 'in_from_Solana', 'in_from_Starknet', 'in_from_THETA', 'in_from_TRON', 'in_from_Zksync', 'total_in', 'out_to_Aptos', 'out_to_Alephzero', 'out_to_Arbitrum', 'out_to_Arweave', 'out_to_Avalanche', 'out_to_Besu', 'out_to_BNBChain', 'out_to_BTC', 'out_to_Cosmos', 'out_to_ETC', 'out_to_Erigon', 'out_to_Ethereumpow', 'out_to_FLOW', 'out_to_Harmony', 'out_to_Helium', 'out_to_Near', 'out_to_Nethermind', 'out_to_Optimism', 'out_to_Polkadot', 'out_to_Polygon', 'out_to_Reth', 'out_to_Ronin', 'out_to_SKALE', 'out_to_Sui', 'out_to_Secretnetwork', 'out_to_Solana', 'out_to_Starknet', 'out_to_THETA', 'out_to_TRON', 'out_to_Zksync', 'total_out']
+📊 迁移数据日期范围: 2014-01-12 00:00:00 到 2025-12-30 00:00:00
+✅ 成功加载 BTC 的迁出数据列: out_to_BTC
+⚠️ 未找到 Solana 对应的迁出列: None
+✅ 成功加载 Cosmos 的迁出数据列: out_to_Cosmos
+✅ 成功加载 TRON 的迁出数据列: out_to_TRON
+
+📈 迁出数据统计（窗口期内）:
+  BTC                 : 总数=  2571, 非零天数= 639
+  Solana              : 无数据
+  Cosmos              : 总数=   230, 非零天数= 182
+  TRON                : 总数=   234, 非零天数= 135
+
+→ 拟合 M1.3: Pure Bass + Out-flow Effects
+
+===== M1.3 拟合结果 =====
+  p0                        =     0.000500  SE=0.000070  t=7.125  p=0.0000
+  q0                        =     0.007868  SE=0.000438  t=17.959  p=0.0000
+  delta_out_BTC             =    -0.000270  SE=0.000048  t=-5.581  p=0.0000
+  delta_out_Solana          =     0.000100  SE=21302479.220702  t=0.000  p=1.0000
+  delta_out_Cosmos          =    -0.000073  SE=0.000053  t=-1.380  p=0.1679
+  delta_out_TRON            =    -0.000139  SE=0.000046  t=-3.050  p=0.0024
+  m                         = 32995.199510  SE=579.468180  t=56.940  p=0.0000
+
+  MAD=17.2556  RMSE=21.2002  R²=0.2338  Adj_R²=0.2263
+  MAPE=62.43%  WAPE=45.88%
+  cond(J'J) = 2.6203e+18
+
+✅ 结果已保存：/home/lab0/survival_diffusion_github/ablation_study/ablation_M1_3_eth_outflow_only_20172019.csv

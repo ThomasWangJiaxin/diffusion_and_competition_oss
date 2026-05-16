@@ -1,0 +1,15 @@
+
+📊 数据窗口: 2020-10-01 ~ 2023-01-01,  共 823 行
+
+→ 拟合 M7.1: price=eth_ma_21d(log) | P=eth_p_event_sum_21(linear)
+  p0         =     0.000199  SE=0.000295  t=0.673  p=0.5010
+  alpha      =     0.000041  SE=0.000062  t=0.656  p=0.5119
+  beta       =     0.000015  SE=0.000023  t=0.633  p=0.5266
+  q0         =     0.000000  SE=0.000323  t=0.000  p=1.0000
+  m          = 141317.186896  SE=208748.225957  t=0.677  p=0.4986
+  MAD=6.5742  RMSE=8.8264  R²=0.2705  Adj_R²=0.2660
+  MAPE=37.38%  WAPE=25.38%
+  cond(J'J) = 9.1622e+21
+
+✅ 完成。组合成功 1 次，跳过 0 次。
+✅ 结果已保存：/home/lab0/survival_diffusion_github/ablation_study/ablation_M7_1_eth_price_pevent_20202023.csv

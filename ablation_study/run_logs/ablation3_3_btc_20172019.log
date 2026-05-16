@@ -1,0 +1,63 @@
+
+📊 数据窗口: 2017-01-01 ~ 2019-01-01,  共 731 行
+
+📊 迁移数据列名: ['date', 'in_from_BCOIN', 'in_from_BNBChain', 'in_from_BOB', 'in_from_BTCD', 'in_from_BitcoinCash', 'in_from_eCash', 'in_from_BitcoinGpu', 'in_from_BitcoinSv', 'in_from_Dogecoin', 'in_from_ETH', 'in_from_LBTC', 'in_from_Lightning Network', 'in_from_Litecoin', 'in_from_Monero', 'in_from_Parity', 'in_from_Rootstock', 'in_from_Solana', 'in_from_Stacks', 'in_from_TRON', 'in_from_Zcash', 'total_in', 'out_to_BCOIN', 'out_to_BNBChain', 'out_to_BOB', 'out_to_BTCD', 'out_to_BitcoinCash', 'out_to_eCash', 'out_to_BitcoinGpu', 'out_to_Bitcoinsv', 'out_to_Dogecoin', 'out_to_ETH', 'out_to_LBTC', 'out_to_Lightning Network', 'out_to_Litecoin', 'out_to_Monero', 'out_to_Parity', 'out_to_Rootstock', 'out_to_Solana', 'out_to_Stacks', 'out_to_TRON', 'out_to_Zcash', 'total_out']
+📊 迁移数据日期范围: 2012-06-29 00:00:00 到 2025-12-29 00:00:00
+Loaded outflow ETH: out_to_ETH
+Loaded outflow Dogecoin: out_to_Dogecoin
+Loaded outflow Lightning Network: out_to_Lightning Network
+Loaded outflow Monero: out_to_Monero
+Loaded outflow Litecoin: out_to_Litecoin
+Loaded outflow BTCD: out_to_BTCD
+Loaded outflow Zcash: out_to_Zcash
+Loaded outflow BCOIN: out_to_BCOIN
+Loaded outflow TRON: out_to_TRON
+Loaded outflow Stacks: out_to_Stacks
+Loaded outflow BitcoinCash: out_to_BitcoinCash
+Loaded outflow LBTC: out_to_LBTC
+Loaded outflow BitcoinGpu: out_to_BitcoinGpu
+Loaded outflow Parity: out_to_Parity
+Loaded outflow Rootstock: out_to_Rootstock
+Outflow data summary (window):
+  ETH                 : total=  3785, nonzero_days= 670
+  Dogecoin            : total=   202, nonzero_days= 143
+  Lightning Network   : total=   620, nonzero_days= 318
+  Monero              : total=   630, nonzero_days= 359
+  Litecoin            : total=   679, nonzero_days= 355
+  BTCD                : total=   435, nonzero_days= 297
+  Zcash               : total=   369, nonzero_days= 267
+  BCOIN               : total=   247, nonzero_days= 190
+  TRON                : total=   190, nonzero_days= 101
+  Stacks              : total=   135, nonzero_days= 110
+  BitcoinCash         : total=   258, nonzero_days= 191
+  LBTC                : total=   158, nonzero_days= 136
+  BitcoinGpu          : total=   131, nonzero_days=  86
+  Parity              : total=    59, nonzero_days=  45
+  Rootstock           : total=    72, nonzero_days=  61
+
+-> Fitting M2.3: price=btc_ma_7d(log)
+  p0                        =     0.001250  SE=0.000157  t=7.950  p=0.0000
+  alpha                     =     0.000325  SE=0.000043  t=7.617  p=0.0000
+  q0                        =     0.000000  SE=0.000451  t=0.000  p=1.0000
+  delta_out_ETH             =    -0.000290  SE=0.000067  t=-4.355  p=0.0000
+  delta_out_Dogecoin        =    -0.000078  SE=0.000024  t=-3.288  p=0.0011
+  delta_out_Lightning Network =    -0.000166  SE=0.000040  t=-4.136  p=0.0000
+  delta_out_Monero          =    -0.000091  SE=0.000026  t=-3.528  p=0.0004
+  delta_out_Litecoin        =    -0.000128  SE=0.000030  t=-4.300  p=0.0000
+  delta_out_BTCD            =     0.000014  SE=0.000019  t=0.722  p=0.4706
+  delta_out_Zcash           =    -0.000011  SE=0.000016  t=-0.684  p=0.4945
+  delta_out_BCOIN           =    -0.000008  SE=0.000016  t=-0.480  p=0.6311
+  delta_out_TRON            =    -0.000019  SE=0.000019  t=-1.000  p=0.3174
+  delta_out_Stacks          =    -0.000005  SE=0.000015  t=-0.321  p=0.7483
+  delta_out_BitcoinCash     =    -0.000032  SE=0.000017  t=-1.938  p=0.0530
+  delta_out_LBTC            =    -0.000048  SE=0.000020  t=-2.390  p=0.0171
+  delta_out_BitcoinGpu      =    -0.000037  SE=0.000017  t=-2.210  p=0.0274
+  delta_out_Parity          =    -0.000010  SE=0.000013  t=-0.776  p=0.4380
+  delta_out_Rootstock       =    -0.000048  SE=0.000020  t=-2.332  p=0.0200
+  m                         = 62836.108062  SE=8376.964874  t=7.501  p=0.0000
+  MAD=13.6327  RMSE=19.1911  R2=0.7874  Adj_R2=0.7818
+  MAPE=34.08%  WAPE=26.55%
+  cond = 1.1047e+18
+
+✅ 完成。组合成功 1 次，跳过 0 次。
+✅ 结果已保存：/home/lab0/survival_diffusion_github/ablation_study/ablation_M3_3_btc_price_outflow_20172019.csv

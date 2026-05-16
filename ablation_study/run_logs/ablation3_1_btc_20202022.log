@@ -1,0 +1,14 @@
+
+📊 数据窗口: 2020-10-01 ~ 2022-10-01,  共 731 行
+
+→ 拟合 M3.1: price=btc_price_lag1(log)
+  p0       =     0.001075  SE=0.000317  t=3.396  p=0.0007
+  alpha    =     0.000258  SE=0.000082  t=3.135  p=0.0018
+  q0       =     0.000104  SE=0.000662  t=0.157  p=0.8755
+  m        = 53063.751846  SE=16364.407939  t=3.243  p=0.0012
+  MAD=12.8864  RMSE=20.7692  R²=0.2669  Adj_R²=0.2629
+  MAPE=42.20%  WAPE=31.81%
+  cond(J'J) = 8.5567e+17
+
+✅ 完成。组合成功 1 次，跳过 0 次。
+✅ 结果已保存：/home/lab0/survival_diffusion_github/ablation_study/ablation_M3_1_btc_price_only_20202022.csv

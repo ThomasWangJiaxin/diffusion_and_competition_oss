@@ -1,0 +1,16 @@
+
+📊 数据窗口: 2017-01-01 ~ 2019-01-01,  共 731 行
+
+→ 拟合 M8.1: price=btc_ma_7d(log) | P=btc_p_event_sum_14(linear) | Q=btc_q_event_sum_7(linear)
+  p0         =     0.001002  SE=0.000122  t=8.235  p=0.0000
+  alpha      =     0.000504  SE=0.000067  t=7.476  p=0.0000
+  beta       =    -0.000339  SE=0.000043  t=-7.936  p=0.0000
+  q0         =     0.004028  SE=0.000705  t=5.710  p=0.0000
+  beta_q     =     0.002861  SE=0.000124  t=23.056  p=0.0000
+  m          = 41777.901608  SE=1091.311502  t=38.282  p=0.0000
+  MAD=13.7591  RMSE=19.1210  R²=0.7890  Adj_R²=0.7872
+  MAPE=33.49%  WAPE=26.80%
+  cond(J'J) = 3.2952e+15
+
+✅ 完成。组合成功 1 次，跳过 0 次。
+✅ 结果已保存：/home/lab0/survival_diffusion_github/ablation_study/ablation_M8_1_btc_price_pevent_qevent_20172019.csv

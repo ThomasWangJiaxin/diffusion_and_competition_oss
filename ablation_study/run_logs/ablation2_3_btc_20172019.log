@@ -1,0 +1,61 @@
+
+📊 数据窗口: 2017-01-01 ~ 2019-01-01,  共 731 行
+✅ 成功加载 ETH 的迁出数据列: out_to_ETH
+✅ 成功加载 Dogecoin 的迁出数据列: out_to_Dogecoin
+✅ 成功加载 Lightning Network 的迁出数据列: out_to_Lightning Network
+✅ 成功加载 Monero 的迁出数据列: out_to_Monero
+✅ 成功加载 Litecoin 的迁出数据列: out_to_Litecoin
+✅ 成功加载 BTCD 的迁出数据列: out_to_BTCD
+✅ 成功加载 Zcash 的迁出数据列: out_to_Zcash
+✅ 成功加载 BCOIN 的迁出数据列: out_to_BCOIN
+✅ 成功加载 TRON 的迁出数据列: out_to_TRON
+✅ 成功加载 Stacks 的迁出数据列: out_to_Stacks
+✅ 成功加载 BitcoinCash 的迁出数据列: out_to_BitcoinCash
+✅ 成功加载 LBTC 的迁出数据列: out_to_LBTC
+✅ 成功加载 BitcoinGpu 的迁出数据列: out_to_BitcoinGpu
+✅ 成功加载 Parity 的迁出数据列: out_to_Parity
+✅ 成功加载 Rootstock 的迁出数据列: out_to_Rootstock
+
+📈 迁出数据统计（窗口期内）:
+  ETH                 : 总数=  3785, 非零天数= 670
+  Dogecoin            : 总数=   202, 非零天数= 143
+  Lightning Network   : 总数=   620, 非零天数= 318
+  Monero              : 总数=   630, 非零天数= 359
+  Litecoin            : 总数=   679, 非零天数= 355
+  BTCD                : 总数=   435, 非零天数= 297
+  Zcash               : 总数=   369, 非零天数= 267
+  BCOIN               : 总数=   247, 非零天数= 190
+  TRON                : 总数=   190, 非零天数= 101
+  Stacks              : 总数=   135, 非零天数= 110
+  BitcoinCash         : 总数=   258, 非零天数= 191
+  LBTC                : 总数=   158, 非零天数= 136
+  BitcoinGpu          : 总数=   131, 非零天数=  86
+  Parity              : 总数=    59, 非零天数=  45
+  Rootstock           : 总数=    72, 非零天数=  61
+
+→ 拟合 M2.3: Q=btc_q_event_sum_7(linear)
+  p0                        =     0.001009  SE=0.000047  t=21.522  p=0.0000
+  q0                        =     0.003846  SE=0.000375  t=10.268  p=0.0000
+  beta_q                    =     0.001708  SE=0.000127  t=13.475  p=0.0000
+  delta_out_ETH             =    -0.000365  SE=0.000042  t=-8.657  p=0.0000
+  delta_out_Dogecoin        =    -0.000085  SE=0.000029  t=-2.894  p=0.0039
+  delta_out_Lightning Network =    -0.000200  SE=0.000036  t=-5.496  p=0.0000
+  delta_out_Monero          =    -0.000120  SE=0.000031  t=-3.860  p=0.0001
+  delta_out_Litecoin        =    -0.000126  SE=0.000031  t=-4.133  p=0.0000
+  delta_out_BTCD            =     0.000034  SE=0.000032  t=1.059  p=0.2899
+  delta_out_Zcash           =    -0.000013  SE=0.000025  t=-0.540  p=0.5894
+  delta_out_BCOIN           =     0.000008  SE=0.000024  t=0.338  p=0.7355
+  delta_out_TRON            =    -0.000004  SE=0.000031  t=-0.129  p=0.8971
+  delta_out_Stacks          =    -0.000020  SE=0.000021  t=-0.924  p=0.3558
+  delta_out_BitcoinCash     =    -0.000046  SE=0.000025  t=-1.858  p=0.0636
+  delta_out_LBTC            =    -0.000053  SE=0.000029  t=-1.831  p=0.0674
+  delta_out_BitcoinGpu      =    -0.000099  SE=0.000023  t=-4.216  p=0.0000
+  delta_out_Parity          =    -0.000019  SE=0.000019  t=-1.019  p=0.3085
+  delta_out_Rootstock       =    -0.000112  SE=0.000029  t=-3.833  p=0.0001
+  m                         = 42957.893487  SE=971.996108  t=44.196  p=0.0000
+  MAD=12.6035  RMSE=17.7262  R²=0.8187  Adj_R²=0.8138
+  MAPE=29.25%  WAPE=24.55%
+  cond(J'J) = 5.1855e+15
+
+✅ 完成。组合成功 1 次，跳过 0 次。
+✅ 结果已保存：/home/lab0/survival_diffusion_github/ablation_study/ablation_M2_3_btc_qevent_outflow_20172019.csv

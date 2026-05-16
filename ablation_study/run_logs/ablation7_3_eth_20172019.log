@@ -1,0 +1,29 @@
+
+📊 数据窗口: 2017-01-01 ~ 2019-01-01,  共 731 行
+✅ 成功加载 BTC 的迁出数据列: out_to_BTC
+✅ 成功加载 Solana 的迁出数据列: out_to_Solana
+✅ 成功加载 Cosmos 的迁出数据列: out_to_Cosmos
+✅ 成功加载 TRON 的迁出数据列: out_to_TRON
+
+📈 迁出数据统计（窗口期内）:
+  BTC                 : 总数=  2571, 非零天数= 639
+  Solana              : 总数=    71, 非零天数=  46
+  Cosmos              : 总数=   230, 非零天数= 182
+  TRON                : 总数=   234, 非零天数= 135
+
+→ 拟合 M7.3: price=eth_price_lag1(log) | P=eth_p_event_sum_30(linear)
+  p0                        =     0.000992  SE=0.000069  t=14.279  p=0.0000
+  alpha                     =     0.000148  SE=0.000041  t=3.593  p=0.0003
+  beta                      =    -0.000023  SE=0.000019  t=-1.248  p=0.2126
+  q0                        =     0.004168  SE=0.000480  t=8.689  p=0.0000
+  delta_out_BTC             =    -0.000391  SE=0.000037  t=-10.571  p=0.0000
+  delta_out_Solana          =     0.000059  SE=0.000047  t=1.255  p=0.2100
+  delta_out_Cosmos          =    -0.000109  SE=0.000039  t=-2.792  p=0.0054
+  delta_out_TRON            =    -0.000120  SE=0.000033  t=-3.589  p=0.0004
+  m                         = 32235.133046  SE=764.702080  t=42.154  p=0.0000
+  MAD=10.4702  RMSE=14.8356  R²=0.6248  Adj_R²=0.6201
+  MAPE=33.71%  WAPE=27.84%
+  cond(J'J) = 2.7180e+15
+
+✅ 完成。组合成功 1 次，跳过 0 次。
+✅ 结果已保存：/home/lab0/survival_diffusion_github/ablation_study/ablation_M7_3_eth_price_pevent_outflow_20172019.csv

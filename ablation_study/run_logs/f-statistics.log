@@ -1,0 +1,44 @@
+
+=================================================================
+📄 merged_btc_20172019.csv  (n=731, J=15)
+  Proposed: SSE=156765.4747, k_U=36
+  ⚠️  未知模型 'constant_p_bass_dN_fit'，填 NaN
+  M1.2  : k_R=18  SSE_R=   266727.16  F=    27.083  p=1.110e-16  ***
+  M1.3  : k_R=18  SSE_R=   289939.97  F=    32.801  p=1.110e-16  ***
+  M1.4  : k_R=33  SSE_R=   186347.40  F=    43.716  p=1.110e-16  ***
+  M2.1  : k_R= 4  SSE_R=   312746.36  F=    21.610  p=1.110e-16  ***
+  M2.2  : k_R=19  SSE_R=   203324.28  F=    12.142  p=1.110e-16  ***
+  M2.3  : k_R=19  SSE_R=   229693.96  F=    19.019  p=1.110e-16  ***
+  M2.4  : k_R=34  SSE_R=   166477.39  F=    21.528  p=8.483e-10  ***
+  M3.1  : k_R= 4  SSE_R=   415258.83  F=    35.812  p=1.110e-16  ***
+  M3.2  : k_R=19  SSE_R=   231040.14  F=    19.370  p=1.110e-16  ***
+  M3.3  : k_R=19  SSE_R=   269225.30  F=    29.328  p=1.110e-16  ***
+  M3.4  : k_R=34  SSE_R=   178431.52  F=    48.027  p=1.110e-16  ***
+  M4.1  : k_R= 5  SSE_R=   286018.42  F=    18.485  p=1.110e-16  ***
+  M4.2  : k_R=20  SSE_R=   199273.86  F=    11.778  p=1.110e-16  ***
+  M4.3  : k_R=20  SSE_R=   226254.06  F=    19.254  p=1.110e-16  ***
+  M4.4  : k_R=35  SSE_R=   165571.25  F=    39.039  p=7.239e-10  ***
+  M5.1  : k_R= 4  SSE_R=   623271.44  F=    64.631  p=1.110e-16  ***
+  M5.2  : k_R=19  SSE_R=   261242.60  F=    27.246  p=1.110e-16  ***
+  M5.3  : k_R=19  SSE_R=   285573.81  F=    33.592  p=1.110e-16  ***
+  M6.1  : k_R= 5  SSE_R=   295306.36  F=    19.813  p=1.110e-16  ***
+  M6.2  : k_R=20  SSE_R=   193642.08  F=    10.218  p=1.110e-16  ***
+  M6.3  : k_R=20  SSE_R=   216102.81  F=    16.442  p=1.110e-16  ***
+  M6.4  : k_R=35  SSE_R=   157245.52  F=     2.128  p=1.451e-01  n.s.
+  M7.1  : k_R= 5  SSE_R=   409203.42  F=    36.102  p=1.110e-16  ***
+  M7.2  : k_R=20  SSE_R=   235336.94  F=    21.771  p=1.110e-16  ***
+  M7.3  : k_R=20  SSE_R=   269182.79  F=    31.149  p=1.110e-16  ***
+  M7.4  : k_R=35  SSE_R=   178217.78  F=    95.106  p=1.110e-16  ***
+  M8.1  : k_R= 6  SSE_R=   267263.10  F=    16.329  p=1.110e-16  ***
+  M8.2  : k_R=21  SSE_R=   190218.13  F=     9.887  p=1.110e-16  ***
+  M8.3  : k_R=21  SSE_R=   213342.82  F=    16.722  p=1.110e-16  ***
+Traceback (most recent call last):
+  File "/home/lab0/survival_diffusion_github/ablation_study/f-statistics.py", line 180, in <module>
+    main()
+  File "/home/lab0/survival_diffusion_github/ablation_study/f-statistics.py", line 175, in main
+    process_file(fpath, N_MAP[fname], J_MAP[fname])
+  File "/home/lab0/survival_diffusion_github/ablation_study/f-statistics.py", line 163, in process_file
+    df.insert(wape_idx + 1, "F_statistic1", f_stats)
+  File "/home/lab0/.local/lib/python3.12/site-packages/pandas/core/frame.py", line 5158, in insert
+    raise ValueError(f"cannot insert {column}, already exists")
+ValueError: cannot insert F_statistic1, already exists
