@@ -1,0 +1,27 @@
+# 大数据目录
+Bitcoin/
+Ethereum/
+sensitivity/
+robustness_check/
+ablation_study/
+competition_bass/
+Baselines/
+logs/
+__pycache__/
+
+# CSV数据文件
+*.csv
+
+# 图片
+*.png
+
+# JSON数据
+*.json
+
+# HTML
+*.html
+
+# Python缓存
+*.pyc
+*.pyo
+.ipynb_checkpoints/
