@@ -1,0 +1,35 @@
+svg_content = '''<svg width="100%" viewBox="0 0 680 370" role="img" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+  <rect x="60" y="60" width="220" height="210" rx="8" fill="none" stroke="#111111" stroke-width="1.5" stroke-dasharray="6 3"/>
+  <text font-family="sans-serif" font-size="18" font-weight="700" x="170" y="92" text-anchor="middle" fill="#111111">Platform A</text>
+  <rect x="400" y="60" width="220" height="210" rx="8" fill="none" stroke="#111111" stroke-width="1.5" stroke-dasharray="6 3"/>
+  <text font-family="sans-serif" font-size="18" font-weight="700" x="510" y="92" text-anchor="middle" fill="#111111">Platform B</text>
+  <circle cx="28" cy="150" r="9" fill="#378ADD"/>
+  <line x1="38" y1="150" x2="88" y2="150" stroke="#378ADD" stroke-width="2" marker-end="url(#arrow)"/>
+  <circle cx="130" cy="145" r="9" fill="#378ADD"/>
+  <circle cx="165" cy="170" r="9" fill="#378ADD"/>
+  <circle cx="155" cy="118" r="9" fill="#378ADD"/>
+  <text font-family="sans-serif" font-size="20" font-weight="700" x="170" y="242" text-anchor="middle" fill="#378ADD">① Adoption</text>
+  <circle cx="248" cy="210" r="9" fill="#D85A30"/>
+  <line x1="258" y1="210" x2="396" y2="210" stroke="#D85A30" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#arrow)"/>
+  <circle cx="448" cy="210" r="9" fill="#D85A30"/>
+  <text font-family="sans-serif" font-size="20" font-weight="700" x="330" y="258" text-anchor="middle" fill="#D85A30">② Migration</text>
+  <circle cx="210" cy="130" r="9" fill="#534AB7"/>
+  <path d="M219 130 Q340 95 461 130" fill="none" stroke="#534AB7" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#arrow)"/>
+  <circle cx="470" cy="130" r="9" fill="#534AB7"/>
+  <text font-family="sans-serif" font-size="20" font-weight="700" x="340" y="106" text-anchor="middle" fill="#534AB7">③ Multi-homing</text>
+  <circle cx="90" cy="332" r="8" fill="#378ADD"/>
+  <text font-family="sans-serif" font-size="20" font-weight="700" x="108" y="339" fill="#111111">Adoption</text>
+  <circle cx="270" cy="332" r="8" fill="#D85A30"/>
+  <text font-family="sans-serif" font-size="20" font-weight="700" x="288" y="339" fill="#111111">Migration</text>
+  <circle cx="450" cy="332" r="8" fill="#534AB7"/>
+  <text font-family="sans-serif" font-size="20" font-weight="700" x="468" y="339" fill="#111111">Multi-homing</text>
+</svg>'''
+
+with open('/home/lab0/survival_diffusion_github/developer_crypto_overview_data_report/developer_behaviors_final.svg', 'w') as f:
+    f.write(svg_content)
+print("saved!")
